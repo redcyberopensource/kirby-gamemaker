@@ -1,0 +1,9 @@
+spr_jump = spr_jump_default;
+spr_fall = spr_fall_default;
+spr_idle = spr_idle_default;
+spr_walk = spr_walk_default;
+spr_run = spr_run_default;
+can_move = true;
+can_dash = true;
+can_turn = true;
+float = false;

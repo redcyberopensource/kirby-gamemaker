@@ -1,0 +1,1 @@
+instance_change(obj_poppy_bros_jr_suck, 1)

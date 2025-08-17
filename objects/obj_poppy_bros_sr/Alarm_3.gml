@@ -1,0 +1,1 @@
+sprite_index = spr_poppy_bros_sr_idle

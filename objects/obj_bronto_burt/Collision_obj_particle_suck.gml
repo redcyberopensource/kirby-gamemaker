@@ -1,0 +1,1 @@
+instance_change(obj_bronto_burt_suck, 1)

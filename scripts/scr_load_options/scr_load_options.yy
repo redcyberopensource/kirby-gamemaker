@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_load_options",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_load_options",
+  "parent":{
+    "name":"Settings",
+    "path":"folders/Scripts/Settings.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

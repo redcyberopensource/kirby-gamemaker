@@ -1,0 +1,66 @@
+image_index = option;
+
+//Scroll
+if (keyboard_check_pressed(vk_up))
+{
+	option -= 1
+}
+
+if (keyboard_check_pressed(vk_down))
+{
+	option += 1
+}
+
+if (option > 2)
+{
+	option = 0
+}
+
+if (option < 0)
+{
+	option = 2
+}
+
+//Select
+if (keyboard_check_pressed(vk_enter)) || (keyboard_check_pressed(ord("Z"))) && (can_use)
+{
+	switch (option)
+	{
+		case 0:
+			if (file_exists("save1.txt")) && (!instance_exists(obj_confirm))
+			{
+				can_use = false
+				instance_create_depth(x, y, -2, obj_confirm)
+			}
+			else
+			{
+				global.file = "save1.txt"
+				room_goto(rm_hub_1);
+			}
+		break;
+		
+		case 1:
+			if (file_exists("save2.txt"))
+			{
+				instance_create_depth(x, y, -2, obj_confirm)
+			}
+			else
+			{
+				global.file = "save2.txt"
+				room_goto(rm_hub_1);
+			}
+		break;
+		
+		case 2:
+			if (file_exists("save3.txt"))
+			{
+				instance_create_depth(x, y, -2, obj_confirm)
+			}
+			else
+			{
+				global.file = "save3.txt"
+				room_goto(rm_hub_1);
+			}
+		break;
+	}
+}

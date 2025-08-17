@@ -1,0 +1,47 @@
+hsp = 0;
+vsp = 0;
+grv = 0.25;
+
+acc = 0.2
+
+hsp_max = 3;
+vsp_fall_max = 10;
+vsp_jump = 6;
+vsp_float = 3;
+
+can_float = true;
+can_move = true;
+can_turn = true;
+can_dash = true;
+can_use_ability = true;
+can_hurt = true
+can_jump = 0
+
+dodge = false;
+can_dodge = true;
+
+mouth_full = false;
+dash_counter = 0;
+
+float = false;
+
+can_play_inhale = false;
+
+vsp_acc = false
+
+spr_fall = spr_kirb_fall;
+spr_jump = spr_kirb_jump;
+spr_idle = spr_kirb_idle;
+spr_walk = spr_kirb_walk;
+spr_run = spr_kirb_run;
+
+spr_fall_default = spr_kirb_fall;
+spr_jump_default = spr_kirb_jump;
+spr_idle_default = spr_kirb_idle;
+spr_walk_default = spr_kirb_walk;
+spr_run_default = spr_kirb_run;
+spr_float_default = spr_kirby_float;
+spr_float_idle_default = spr_kirby_float_idle;
+spr_float_halt_default = spr_kirb_float_halt;
+
+alarm[0] = 2

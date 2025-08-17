@@ -1,0 +1,606 @@
+key_left = keyboard_check(vk_left)
+key_right = keyboard_check(vk_right)
+key_left_pressed = keyboard_check_pressed(vk_left)
+key_right_pressed = keyboard_check_pressed(vk_right)
+key_down = keyboard_check(vk_down)
+key_up = keyboard_check(vk_up)
+key_jump = keyboard_check_pressed(ord("Z"))
+key_down_pressed = keyboard_check_pressed(vk_down)
+key_action_pressed = keyboard_check_pressed(ord("X"))
+key_action = keyboard_check(ord("X"))
+key_discard_ability = keyboard_check_pressed(vk_shift)
+key_dodge = keyboard_check_pressed(ord("C"))
+
+
+if (dodge)
+{
+	can_move = false;
+}
+
+var move = key_right - key_left;
+
+//Moving
+if (can_move = true)
+{
+	//move right
+	if (move = 1)
+	{
+		hsp += acc
+		if (hsp >= hsp_max) hsp = hsp_max
+	}
+	else if (hsp > 0)
+	{
+		hsp -= acc
+	}
+
+	//move left
+	if (move = -1)
+	{
+		hsp -= acc
+		if (hsp <= -hsp_max) hsp = -hsp_max
+	}
+	else if (hsp < 0)
+	{
+		hsp += acc
+	}
+}
+
+//Dashing
+if (can_dash)
+{
+	if ((key_left_pressed) || (key_right_pressed)) && hsp != 0 && (dash_counter < 2)
+	{
+		dash_counter += 1
+	}
+
+	if dash_counter >= 2
+	{
+		hsp_max = 5
+	}
+	else if dash_counter <= 1
+	{
+		hsp_max = 3
+	}
+	if (hsp = 0) dash_counter = 0
+}
+
+if (vsp < vsp_fall_max) vsp += grv
+
+//Stop if cannot move
+if (!can_move)
+{
+	if (hsp > 0)
+	{
+		hsp -= acc
+	}
+	if (hsp < 0)
+	{
+		hsp += acc
+	}
+	can_dash = false
+}
+
+if (!can_dash)
+{
+	dash_counter = 0
+	hsp_max = 3
+}
+
+if (vsp_acc) && (vsp > 0)
+{
+	vsp -= acc
+}
+else if (vsp_acc) && (vsp < 0)
+{
+	vsp += acc
+}
+
+//Jumping
+if place_meeting(x, y+1, obj_solid) && (!key_action)
+{
+	vsp = key_jump * -vsp_jump;
+	//spr_jump = spr_kirb_jump;
+	//spr_fall = spr_kirb_fall;
+	vsp_fall_max = 10
+	
+	if (key_jump) audio_play_sound(snd_kirb_jump, 5, false)
+}
+
+//Float
+if (!place_meeting(x, y+1, obj_solid)) && (key_jump) && (can_float = true)
+{
+	float = true
+	vsp = key_jump * -vsp_float;
+	spr_jump = spr_float_default;
+	spr_fall = spr_float_idle_default;
+	can_dash = false;
+	vsp_fall_max = 2.5;
+	
+	audio_play_sound(snd_kirb_float, 5, false)
+}
+
+//Float haltmann
+if ((key_action_pressed) && (!place_meeting(x, y+1, obj_solid)) && (float))
+{
+	spr_jump = spr_float_halt_default
+	spr_fall = spr_float_halt_default
+	spr_idle = spr_float_halt_default
+	var ID = instance_create_depth(x, y, 0, obj_air_spit)
+	with ID
+	{
+		hspeed = 10*obj_kirb.image_xscale
+		image_xscale = obj_kirb.image_xscale
+	}
+	alarm[0] = 6
+	vsp_fall_max = 10;
+	can_dash = true
+	
+	audio_play_sound(snd_kirb_float_halt, 5, false)
+}
+
+if ((place_meeting(x, y+1, obj_solid)) && (float))
+{
+	float = false
+	spr_jump = spr_float_halt_default
+	spr_fall = spr_float_halt_default
+	spr_idle = spr_float_halt_default
+	spr_walk = spr_float_halt_default
+	var ID = instance_create_depth(x, y, 0, obj_air_spit)
+	with ID
+	{
+		hspeed = 10*obj_kirb.image_xscale
+		image_xscale = obj_kirb.image_xscale
+	}
+	alarm[0] = 6
+	vsp_fall_max = 10;
+}
+
+
+//Horizontal movement
+if (place_meeting(x+hsp, y, obj_solid))
+{
+	yplus = 0;
+	while (place_meeting(x+hsp, y-yplus, obj_solid) && yplus <= abs(1*hsp))
+	{
+		yplus += 1
+	}
+	
+	if (place_meeting(x+hsp, y-yplus, obj_solid))
+	{
+		while (!place_meeting(x+sign(hsp), y, obj_solid))
+		{
+			x += sign(hsp)
+		}
+		hsp = 0
+	}
+	else
+	{
+		y -= yplus
+	}
+	
+}
+x += hsp
+
+//Vertical movement
+if (place_meeting(x, y+vsp, obj_solid))
+{
+	while (!place_meeting(x, y+sign(vsp), obj_solid))
+	{
+		y += sign(vsp)
+	}
+	vsp = 0;
+}
+
+y += vsp
+
+if place_meeting(x, y, obj_kibble_suck) || place_meeting(x, y, obj_star_cutter_suck)
+{
+	global.powerup = 2
+}
+
+if place_meeting(x, y, obj_flamer_suck) || place_meeting(x, y, obj_star_bomb_suck)
+{
+	global.powerup = 1
+}
+
+//Air doge
+if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodge)
+{
+	can_move = false;
+	can_float = false;
+	can_turn = false;
+	can_use_ability = false;
+	
+	dodge = true;
+	can_dodge = false;
+	
+	image_alpha = 0.5;
+	image_speed = 0;
+	can_hurt = false;
+	vsp = 0;
+	hsp = 0
+	grv = 0;
+	
+	if (key_left) hsp = -4
+	if (key_right) hsp = 4
+	if (key_down) vsp = 4
+	if (key_up) vsp = -4
+	vsp_acc = true
+	
+	alarm[4] = 60
+}
+
+//Stop airdoge if touching floor
+if (place_meeting(x, y+1, obj_solid)) && (image_alpha = 0.5) && (dodge)
+{
+	dodge = false;
+	can_dodge = true
+	can_float = true;
+	can_move = true;
+
+	can_hurt = true;
+	grv = 0.25;
+	image_speed = 1;
+	image_alpha = 1
+	vsp_acc = false
+	
+	spr_walk = spr_idle_default
+	alarm[0] = 13
+	
+	can_dash = true;
+	
+	hspeed = 0
+}
+
+
+//Abilities
+if (mouth_full = false) && (!float)
+{
+	switch (global.powerup)
+	{
+		case 0: //No ability
+			if (key_action_pressed)
+			{
+				ID = instance_create_depth(x, y, 1, obj_particle_suck)
+				with ID
+				{
+					image_xscale = obj_kirb.image_xscale
+				}
+	
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				spr_idle = spr_kirb_suck;
+				spr_fall = spr_kirb_suck;
+				spr_jump = spr_kirb_suck;
+				spr_run = spr_kirb_suck;
+				spr_walk = spr_kirb_suck
+				
+				can_play_inhale = true
+				audio_play_sound(snd_kirb_inhale, 5, false)
+				alarm[6] = 50
+			}
+			else if (!key_action)
+			{
+				if (!instance_exists(par_enemy_suck))
+				{
+					if instance_exists(obj_particle_suck)
+					{
+						with obj_particle_suck instance_destroy()
+						can_turn = true;
+						can_move = true;
+						can_dash = true;
+						can_float = true;
+						spr_idle = spr_idle_default;
+						spr_fall = spr_fall_default;
+						spr_jump = spr_jump_default;
+						spr_walk = spr_walk_default;
+						spr_run = spr_run_default;
+						audio_stop_sound(snd_kirb_inhale)
+						audio_stop_sound(snd_kirb_inhale_1)
+						can_play_inhale = false;
+					}
+				}
+			}
+		break;
+		
+		case 1: //Fire ability
+			if (key_action_pressed) && (can_use_ability)
+			{
+				ID = instance_create_depth(x, y+irandom_range(-12, 12), 1, obj_flamethrower)
+				with ID
+				{
+					image_xscale = obj_kirb.image_xscale
+					hspeed = obj_kirb.image_xscale * 10
+				}
+	
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				spr_idle = spr_kirb_fire_flamethrower;
+				spr_fall = spr_kirb_fire_flamethrower;
+				spr_jump = spr_kirb_fire_flamethrower;
+				spr_run = spr_kirb_fire_flamethrower;
+				spr_walk = spr_kirb_fire_flamethrower;
+			}
+			else if (!key_action)
+			{
+				//with obj_particle_suck instance_destroy()
+				with obj_flamethrower instance_destroy()
+				can_turn = true;
+				can_move = true;
+				can_float = true;
+				can_dash = true
+				spr_idle = spr_idle_default;
+				spr_fall = spr_fall_default;
+				spr_jump = spr_jump_default;
+				spr_walk = spr_walk_default;
+				spr_run = spr_run_default;
+			}
+		break;
+		
+		case 2: //Cutter ability
+			if (key_action_pressed) && (can_use_ability)
+			{
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				spr_idle = spr_kirb_cutter_boomerang;
+				spr_fall = spr_kirb_cutter_boomerang;
+				spr_jump = spr_kirb_cutter_boomerang;
+				spr_run = spr_kirb_cutter_boomerang;
+				spr_walk = spr_kirb_cutter_boomerang;
+				alarm[1] = 4
+				alarm[0] = 12
+			}
+			else if (!key_action)
+			{
+				//with obj_particle_suck instance_destroy()
+				can_turn = true;
+				can_move = true;
+				can_float = true;
+				can_dash = true
+			}
+		break;
+		
+		case 3: //Bomb ability
+			if (key_action_pressed) && (can_use_ability)
+			{
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				spr_idle = spr_kirb_bomb_throw;
+				spr_fall = spr_kirb_bomb_throw;
+				spr_jump = spr_kirb_bomb_throw;
+				spr_run = spr_kirb_bomb_throw;
+				spr_walk = spr_kirb_bomb_throw;
+				alarm[2] = 10
+				alarm[0] = 17
+			}
+			else if (!key_action)
+			{
+				//with obj_particle_suck instance_destroy()
+				can_turn = true;
+				can_move = true;
+				can_float = true;
+				can_dash = true
+			}
+		break;
+	}
+}
+
+
+if place_meeting(x, y, par_enemy_suck)
+{
+	mouth_full = true;
+	can_play_inhale = false;
+	instance_destroy(obj_particle_suck)
+	audio_stop_sound(snd_kirb_inhale)
+	audio_stop_sound(snd_kirb_inhale_1)
+	can_float = false;
+	can_move = true;
+	can_dash = false;
+	can_turn = true;
+	spr_idle = spr_kirb_inhaled_idle;
+	spr_walk = spr_kirb_inhaled_walk;
+	spr_run = spr_kirb_inhaled_walk;
+	spr_jump = spr_kirb_inhaled_jump;
+	spr_fall = spr_kirb_inhaled_fall;
+	with par_enemy_suck
+	{
+		instance_destroy()
+	}
+}
+
+if (mouth_full) && (key_down_pressed)
+{
+	can_use_ability = true;
+	spr_idle = spr_kirb_swallow;
+	spr_fall = spr_kirb_swallow;
+	spr_jump = spr_kirb_swallow;
+	spr_walk = spr_kirb_swallow;
+	spr_run = spr_run_default;
+	can_move = true
+	can_float = true;
+	can_dash = true;
+	mouth_full = false
+	alarm[0] = 6
+}
+
+if (mouth_full) && (key_action_pressed)
+{
+	global.powerup = 0;
+	ID = instance_create_depth(x, y, -2, obj_star_spit)
+	with ID
+	{
+		hspeed = obj_kirb.image_xscale*15
+	}
+	
+	spr_idle = spr_kirb_float_halt;
+	spr_fall = spr_kirb_float_halt;
+	spr_jump = spr_kirb_float_halt;
+	spr_walk = spr_kirb_float_halt;
+	spr_run = spr_run_default;
+	can_move = true
+	can_float = true;
+	can_dash = true;
+	mouth_full = false
+	alarm[0] = 6
+}
+
+//Switch animations
+switch global.powerup
+{
+	case 0:
+		spr_fall_default = spr_kirb_fall;
+		spr_jump_default = spr_kirb_jump;
+		spr_idle_default = spr_kirb_idle;
+		spr_walk_default = spr_kirb_walk;
+		spr_run_default = spr_kirb_run;
+		spr_float_default = spr_kirby_float;
+		spr_float_idle_default = spr_kirby_float_idle;
+		spr_float_halt_default = spr_kirb_float_halt;
+	break;
+	
+	case 1:
+		spr_fall_default = spr_kirb_fire_fall;
+		spr_jump_default = spr_kirb_fire_jump;
+		spr_idle_default = spr_kirb_fire_idle;
+		spr_walk_default = spr_kirb_fire_walk;
+		spr_run_default = spr_kirb_fire_run;
+		spr_float_default = spr_kirb_fire_float;
+		spr_float_idle_default = spr_kirb_fire_float_idle;
+		spr_float_halt_default = spr_kirb_fire_float_halt;
+	break;
+	
+	case 2:
+		spr_fall_default = spr_kirb_cutter_fall;
+		spr_jump_default = spr_kirb_cutter_jump;
+		spr_idle_default = spr_kirb_cutter_idle;
+		spr_walk_default = spr_kirb_cutter_walk;
+		spr_run_default = spr_kirb_cutter_run;
+		spr_float_default = spr_kirb_cutter_float;
+		spr_float_idle_default = spr_kirb_cutter_float_idle;
+		spr_float_halt_default = spr_kirb_cutter_float_halt;
+	break;
+	
+	case 3:
+		spr_fall_default = spr_kirb_bomb_fall;
+		spr_jump_default = spr_kirb_bomb_jump;
+		spr_idle_default = spr_kirb_bomb_idle;
+		spr_walk_default = spr_kirb_bomb_walk;
+		spr_run_default = spr_kirb_bomb_run;
+		spr_float_default = spr_kirb_bomb_float;
+		spr_float_idle_default = spr_kirb_bomb_float_idle;
+		spr_float_halt_default = spr_kirb_bomb_float_halt;
+	break;
+}
+
+//Discard ability
+if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))
+{
+	switch (global.powerup)
+	{
+		case 1:
+			instance_create_depth(x, y, 0, obj_star_fire)
+		break;
+		
+		case 2:
+			instance_create_depth(x, y, 0, obj_star_cutter)
+		break;
+		
+		case 3:
+			instance_create_depth(x, y, 0, obj_star_bomb)
+		break;
+	}
+	
+	global.powerup = 0;
+	spr_fall = spr_kirb_fall;
+	spr_jump = spr_kirb_jump;
+	spr_idle = spr_kirb_idle;
+	spr_walk = spr_kirb_walk;
+	spr_run = spr_kirb_run;
+	vsp_fall_max = 10
+	spr_float_default = spr_kirby_float;
+	spr_float_idle_default = spr_kirby_float_idle;
+	spr_float_halt_default = spr_kirb_float_halt;
+	alarm[0] = 2
+}
+
+//Hurt
+if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (can_hurt) && (global.hp > 0)
+{
+	switch (global.powerup)
+	{
+		case 1:
+			instance_create_depth(x, y, 0, obj_star_fire)
+		break;
+		
+		case 2:
+			instance_create_depth(x, y, 0, obj_star_cutter)
+		break;
+		
+		case 3:
+			instance_create_depth(x, y, 0, obj_star_bomb)
+		break;
+	}
+	
+	mouth_full = false;
+	float = false;
+	global.powerup = 0;
+	spr_fall = spr_kirb_hurt;
+	spr_jump = spr_kirb_hurt;
+	spr_idle = spr_kirb_hurt;
+	spr_walk = spr_kirb_hurt;
+	can_move = false;
+	vsp = -3;
+	hsp = -3*image_xscale;
+	global.hp--
+	can_hurt = false;
+	image_alpha = 0.5;
+	alarm[0] = 20
+	alarm[3] = 90
+}
+else if (place_meeting(x, y, par_enemy)) && (global.hp <= 0) && (can_hurt)
+{
+	mouth_full = false;
+	instance_create_depth(x, y, -3, obj_kirby_die)
+	global.hp = 0
+	instance_destroy()
+}
+
+//Instakill
+if (place_meeting(x, y, par_instakill)) && (can_hurt)
+{
+	mouth_full = false;
+	global.powerup = 0;
+	instance_create_depth(x, y, -3, obj_kirby_die)
+	global.hp = 0
+	instance_destroy()
+}
+
+//G A M E     O V E R
+if (global.lives < 0)
+{
+	room_goto(rm_game_over)
+}
+
+//Animation
+if ((move != 0) && (can_turn)) image_xscale = move
+if place_meeting(x, y+1, obj_solid)
+{
+	if (hsp = 0) sprite_index = spr_idle;
+	else if (hsp != 0)
+	{
+		if (dash_counter < 2) sprite_index = spr_walk
+		else if (dash_counter >= 2) sprite_index = spr_run
+	}
+}
+else if (!place_meeting(x, y+1, obj_solid))
+{
+	if (vsp < 0) sprite_index = spr_jump
+	else if (vsp > 0) 
+	{
+		sprite_index = spr_fall
+	}
+}

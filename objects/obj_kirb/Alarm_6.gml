@@ -1,0 +1,1 @@
+if can_play_inhale audio_play_sound(snd_kirb_inhale_1, 5, true)

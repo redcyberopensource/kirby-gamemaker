@@ -1,0 +1,40 @@
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+function get_music(){
+		switch (room)
+	{
+		case rm_title:
+			audio_stop_all()
+			global.current_music = bgm_title
+		break;
+		
+		case rm_menu:
+			audio_stop_all()
+			global.current_music = bgm_menu
+		break;
+		
+		case rm_options:
+		case rm_file_select_new:
+		case rm_file_select_load:
+			audio_stop_all()
+			global.current_music = bgm_options
+		break;
+		
+		case rm_hub_1:
+			audio_stop_all()
+			global.current_music = bgm_hub_1
+		break;
+		
+		case rm_level_0_1:
+		case rm_level_0_2:
+		case rm_level_0_3:
+			if (global.current_music != bgm_world_1) audio_stop_all()
+			global.current_music = bgm_world_1
+		break;
+		
+		case rm_level_0_4:
+			if (global.current_music != bgm_miniboss) audio_stop_all()
+			global.current_music = bgm_miniboss
+		break;
+	}
+}

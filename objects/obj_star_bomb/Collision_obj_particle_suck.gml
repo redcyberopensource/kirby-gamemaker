@@ -1,0 +1,1 @@
+instance_change(obj_star_bomb_suck, true)

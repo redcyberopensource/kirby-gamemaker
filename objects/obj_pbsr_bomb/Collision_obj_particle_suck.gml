@@ -1,0 +1,1 @@
+instance_change(obj_pbsr_bomb_suck, 1)

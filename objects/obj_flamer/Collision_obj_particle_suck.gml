@@ -1,0 +1,1 @@
+instance_change(obj_flamer_suck, 1)

@@ -1,0 +1,1 @@
+instance_change(enemy_suck, 1)
