@@ -204,7 +204,7 @@ if place_meeting(x, y, obj_flamer_suck) || place_meeting(x, y, obj_star_bomb_suc
 }
 
 //Air doge
-if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodge)
+if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodge) && (!place_meeting(x, y+1, obj_solid))
 {
 	can_move = false;
 	can_float = false;
@@ -401,6 +401,11 @@ if place_meeting(x, y, par_enemy_suck)
 	can_move = true;
 	can_dash = false;
 	can_turn = true;
+	spr_idle_default = spr_kirb_inhaled_idle;
+	spr_walk_default = spr_kirb_inhaled_walk;
+	spr_run_default = spr_kirb_inhaled_walk;
+	spr_jump_default = spr_kirb_inhaled_jump;
+	spr_fall_default = spr_kirb_inhaled_fall;
 	spr_idle = spr_kirb_inhaled_idle;
 	spr_walk = spr_kirb_inhaled_walk;
 	spr_run = spr_kirb_inhaled_walk;
@@ -424,6 +429,7 @@ if (mouth_full) && (key_down_pressed)
 	can_float = true;
 	can_dash = true;
 	mouth_full = false
+	audio_play_sound(snd_kirb_swallow, 5, false)
 	alarm[0] = 6
 }
 
@@ -446,6 +452,8 @@ if (mouth_full) && (key_action_pressed)
 	can_dash = true;
 	mouth_full = false
 	alarm[0] = 6
+	
+	audio_play_sound(snd_kirb_spit, 5, false)
 }
 
 //Switch animations
@@ -560,6 +568,11 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 	image_alpha = 0.5;
 	alarm[0] = 20
 	alarm[3] = 90
+	
+	if (!audio_is_playing(snd_kirb_hurt))
+	{
+		audio_play_sound(snd_kirb_hurt, 5, false)
+	}
 }
 else if (place_meeting(x, y, par_enemy)) && (global.hp <= 0) && (can_hurt)
 {

@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_kirb_hurt",
+  "%Name":"snd_kirb_swallow",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.322177,
-  "name":"snd_kirb_hurt",
+  "duration":0.679524,
+  "name":"snd_kirb_swallow",
   "parent":{
     "name":"Kirby",
     "path":"folders/Sounds/SFX/Kirby.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_kirb_hurt.wav",
+  "soundFile":"snd_kirb_swallow.wav",
   "type":0,
-  "volume":0.5,
+  "volume":1.0,
 }

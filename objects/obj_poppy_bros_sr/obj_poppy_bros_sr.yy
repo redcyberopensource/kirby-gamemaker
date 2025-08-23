@@ -19,8 +19,8 @@
     "path":"folders/Objects/Bosses.yy",
   },
   "parentObjectId":{
-    "name":"par_enemy",
-    "path":"objects/par_enemy/par_enemy.yy",
+    "name":"par_hazard",
+    "path":"objects/par_hazard/par_hazard.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

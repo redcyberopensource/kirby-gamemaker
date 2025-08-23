@@ -28,8 +28,13 @@ function get_music(){
 		case rm_level_0_1:
 		case rm_level_0_2:
 		case rm_level_0_3:
+		case rm_level_1_0:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1
+		break;
+		
+		case rm_game_over:
+			global.current_music = bgm_get_rekt
 		break;
 		
 		case rm_level_0_4:

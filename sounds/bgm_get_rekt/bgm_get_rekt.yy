@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_kirb_hurt",
+  "%Name":"bgm_get_rekt",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,17 +9,17 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.322177,
-  "name":"snd_kirb_hurt",
+  "duration":24.05875,
+  "name":"bgm_get_rekt",
   "parent":{
-    "name":"Kirby",
-    "path":"folders/Sounds/SFX/Kirby.yy",
+    "name":"BGM",
+    "path":"folders/Sounds/BGM.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_kirb_hurt.wav",
+  "soundFile":"bgm_get_rekt.mp3",
   "type":0,
-  "volume":0.5,
+  "volume":1.0,
 }
