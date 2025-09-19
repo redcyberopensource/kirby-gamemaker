@@ -12,8 +12,8 @@
   "duration":81.266914,
   "name":"bgm_world_1",
   "parent":{
-    "name":"BGM",
-    "path":"folders/Sounds/BGM.yy",
+    "name":"World 1",
+    "path":"folders/Sounds/BGM/World 1.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

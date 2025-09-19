@@ -1,0 +1,1 @@
+global.file = "save1.txt"

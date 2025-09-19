@@ -16,6 +16,7 @@ if (option = 0)
 				file_delete("save3.txt")
 			break;
 		}
+		room_goto(rm_hub_1)
 	}
 }
 else if (option = 1)

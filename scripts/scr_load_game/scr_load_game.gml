@@ -6,8 +6,15 @@ function load_game(filename){
 	var room_name = ini_read_string("Game", "Current_Hub_Room", "rm_hub_1")
 	global.hub_room = asset_get_index(room_name)
 	
-	global.level = ini_read_real("Game", "Level_Unlocked", 0) == 1
-	global.powerup = ini_write_real("Game", "Copy_Ability", 0)
+	for (var i = 0; i < array_length(global.level); i++) {
+	    global.level[i] = (ini_read_real("Game", "Level" + string(i), 0) == 1);
+	}
+	
+	global.hp = ini_read_real("Game", "Health", 6)
+	
+	global.lives = ini_read_real("Game", "Lives", 3)
+	
+	global.powerup = ini_read_real("Game", "Copy_Ability", 0)
 	
 	ini_close()
 	

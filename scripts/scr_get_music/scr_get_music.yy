@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_get_music",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Music",
+    "path":"folders/Scripts/Music.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -16,8 +16,8 @@
     "path":"folders/Objects/Kirby/Projectiles.yy",
   },
   "parentObjectId":{
-    "name":"par_porjectile",
-    "path":"objects/par_porjectile/par_porjectile.yy",
+    "name":"par_weapon",
+    "path":"objects/par_weapon/par_weapon.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

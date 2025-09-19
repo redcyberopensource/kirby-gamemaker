@@ -11,19 +11,19 @@ key_action = keyboard_check(ord("X"))
 key_discard_ability = keyboard_check_pressed(vk_shift)
 key_dodge = keyboard_check_pressed(ord("C"))
 
-
 if (dodge)
 {
 	can_move = false;
 }
 
 var move = key_right - key_left;
+var hsp_final = hsp + hspeed
 
 //Moving
-if (can_move = true)
+if (can_move == true)
 {
 	//move right
-	if (move = 1)
+	if (move == 1)
 	{
 		hsp += acc
 		if (hsp >= hsp_max) hsp = hsp_max
@@ -34,7 +34,7 @@ if (can_move = true)
 	}
 
 	//move left
-	if (move = -1)
+	if (move == -1)
 	{
 		hsp -= acc
 		if (hsp <= -hsp_max) hsp = -hsp_max
@@ -61,7 +61,7 @@ if (can_dash)
 	{
 		hsp_max = 3
 	}
-	if (hsp = 0) dash_counter = 0
+	if (hsp == 0) dash_counter = 0
 }
 
 if (vsp < vsp_fall_max) vsp += grv
@@ -170,8 +170,11 @@ if (place_meeting(x+hsp, y, obj_solid))
 		while (!place_meeting(x+sign(hsp), y, obj_solid))
 		{
 			x += sign(hsp)
+			//hsp_final -= sign(hsp_final)
 		}
 		hsp = 0
+		hspeed = 0;
+		//x = x - (1 * -sign(hspeed))
 	}
 	else
 	{
@@ -181,6 +184,18 @@ if (place_meeting(x+hsp, y, obj_solid))
 }
 x += hsp
 
+if (instance_exists(obj_wind))
+{
+    // only apply forced movement if not immediately blocked
+    if (!place_meeting(x + sign(hsp_forced) * max(1, 5), y, obj_solid))
+    {
+        hspeed = hsp_forced;
+    }
+    else
+    {
+        hspeed = 0;
+    }
+}
 //Vertical movement
 if (place_meeting(x, y+vsp, obj_solid))
 {
@@ -198,7 +213,7 @@ if place_meeting(x, y, obj_kibble_suck) || place_meeting(x, y, obj_star_cutter_s
 	global.powerup = 2
 }
 
-if place_meeting(x, y, obj_flamer_suck) || place_meeting(x, y, obj_star_bomb_suck)
+if place_meeting(x, y, obj_flamer_suck) || place_meeting(x, y, obj_star_fire_suck)
 {
 	global.powerup = 1
 }
@@ -227,7 +242,7 @@ if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodg
 	if (key_up) vsp = -4
 	vsp_acc = true
 	
-	alarm[4] = 60
+	alarm[4] = 30
 }
 
 //Stop airdoge if touching floor
@@ -250,6 +265,15 @@ if (place_meeting(x, y+1, obj_solid)) && (image_alpha = 0.5) && (dodge)
 	can_dash = true;
 	
 	hspeed = 0
+}
+
+if (mouth_full)
+{
+	spr_idle_default = spr_kirb_inhaled_idle;
+	spr_walk_default = spr_kirb_inhaled_walk;
+	spr_run_default = spr_kirb_inhaled_walk;
+	spr_jump_default = spr_kirb_inhaled_jump;
+	spr_fall_default = spr_kirb_inhaled_fall;
 }
 
 
@@ -392,6 +416,8 @@ if (mouth_full = false) && (!float)
 
 if place_meeting(x, y, par_enemy_suck)
 {
+	can_hurt = false;
+	alarm[3] = 10;
 	mouth_full = true;
 	can_play_inhale = false;
 	instance_destroy(obj_particle_suck)
@@ -542,6 +568,7 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 	{
 		case 1:
 			instance_create_depth(x, y, 0, obj_star_fire)
+			with obj_flamethrower instance_destroy()
 		break;
 		
 		case 2:
@@ -574,7 +601,14 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		audio_play_sound(snd_kirb_hurt, 5, false)
 	}
 }
-else if (place_meeting(x, y, par_enemy)) && (global.hp <= 0) && (can_hurt)
+else if (place_meeting(x, y, par_enemy)) && (global.hp < 1) && (can_hurt)
+{
+	mouth_full = false;
+	instance_create_depth(x, y, -3, obj_kirby_die)
+	global.hp = 0
+	instance_destroy()
+}
+if (place_meeting(x, y, par_hazard)) && (global.hp < 1) && (can_hurt)
 {
 	mouth_full = false;
 	instance_create_depth(x, y, -3, obj_kirby_die)

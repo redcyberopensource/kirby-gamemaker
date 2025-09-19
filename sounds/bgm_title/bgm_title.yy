@@ -12,8 +12,8 @@
   "duration":16.822857,
   "name":"bgm_title",
   "parent":{
-    "name":"BGM",
-    "path":"folders/Sounds/BGM.yy",
+    "name":"Menu",
+    "path":"folders/Sounds/BGM/Menu.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

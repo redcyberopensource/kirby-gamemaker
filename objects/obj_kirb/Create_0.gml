@@ -6,6 +6,7 @@ acc = 0.2
 
 hsp_max = 3;
 vsp_fall_max = 10;
+hsp_forced = 0;
 vsp_jump = 6;
 vsp_float = 3;
 
@@ -16,6 +17,8 @@ can_dash = true;
 can_use_ability = true;
 can_hurt = true
 can_jump = 0
+
+hsp_forced_max = 5
 
 dodge = false;
 can_dodge = true;

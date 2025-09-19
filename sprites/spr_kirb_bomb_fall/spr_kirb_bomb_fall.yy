@@ -2,18 +2,18 @@
   "$GMSprite":"",
   "%Name":"spr_kirb_bomb_fall",
   "bboxMode":2,
-  "bbox_bottom":95,
+  "bbox_bottom":81,
   "bbox_left":44,
   "bbox_right":83,
-  "bbox_top":60,
+  "bbox_top":46,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"b06ea8e4-8383-4c3f-9aba-7de08a9ed88a","name":"b06ea8e4-8383-4c3f-9aba-7de08a9ed88a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -24,7 +24,7 @@
   ],
   "name":"spr_kirb_bomb_fall",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"Bomb",
     "path":"folders/Sprites/Kirby/Bomb.yy",
@@ -70,17 +70,17 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","path":"sprites/spr_kirb_bomb_fall/spr_kirb_bomb_fall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a110a4da-aeb9-43e4-bda5-5557b09db604","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b06ea8e4-8383-4c3f-9aba-7de08a9ed88a","path":"sprites/spr_kirb_bomb_fall/spr_kirb_bomb_fall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"63754daf-fae7-4bd8-b1e1-1906529afcbb","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"63754daf-fae7-4bd8-b1e1-1906529afcbb","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ae3e6393-6bc1-42b6-8fbb-237b2f0fbb27","path":"sprites/spr_kirb_bomb_fall/spr_kirb_bomb_fall.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a110a4da-aeb9-43e4-bda5-5557b09db604","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
     "xorigin":64,
-    "yorigin":78,
+    "yorigin":64,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
