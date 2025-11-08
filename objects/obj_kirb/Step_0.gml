@@ -1,6 +1,6 @@
-key_left = keyboard_check(vk_left)
-key_right = keyboard_check(vk_right)
-key_left_pressed = keyboard_check_pressed(vk_left)
+key_left = keyboard_check(vk_left) || gamepad_button_check(0, gp_padl)
+key_right = keyboard_check(vk_right) || gamepad_button_check(0, gp_padr)
+key_left_pressed = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl)
 key_right_pressed = keyboard_check_pressed(vk_right)
 key_down = keyboard_check(vk_down)
 key_up = keyboard_check(vk_up)
@@ -608,11 +608,11 @@ else if (place_meeting(x, y, par_enemy)) && (global.hp < 1) && (can_hurt)
 	global.hp = 0
 	instance_destroy()
 }
-if (place_meeting(x, y, par_hazard)) && (global.hp < 1) && (can_hurt)
+if (global.hp < 1) //&& (can_hurt)
 {
 	mouth_full = false;
 	instance_create_depth(x, y, -3, obj_kirby_die)
-	global.hp = 0
+	//global.hp = 0
 	instance_destroy()
 }
 
@@ -621,9 +621,9 @@ if (place_meeting(x, y, par_instakill)) && (can_hurt)
 {
 	mouth_full = false;
 	global.powerup = 0;
-	instance_create_depth(x, y, -3, obj_kirby_die)
+	//instance_create_depth(x, y, -3, obj_kirby_die)
 	global.hp = 0
-	instance_destroy()
+	//instance_destroy()
 }
 
 //G A M E     O V E R

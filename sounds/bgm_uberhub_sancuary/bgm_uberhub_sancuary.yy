@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_uberhub_sancuary",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":100.88487,
+  "name":"bgm_uberhub_sancuary",
+  "parent":{
+    "name":"Uberhub Act 2",
+    "path":"folders/Sounds/BGM/Uberhub Act 2.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_uberhub_sancuary.mp3",
+  "type":1,
+  "volume":0.5,
+}

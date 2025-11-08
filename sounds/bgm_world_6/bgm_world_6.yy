@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_world_6",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":136.67262,
+  "name":"bgm_world_6",
+  "parent":{
+    "name":"World 6",
+    "path":"folders/Sounds/BGM/World 6.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_world_6.mp3",
+  "type":1,
+  "volume":0.5,
+}

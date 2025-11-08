@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_boss_3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":142.1322,
+  "name":"bgm_boss_3",
+  "parent":{
+    "name":"World 3",
+    "path":"folders/Sounds/BGM/World 3.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_boss_3.mp3",
+  "type":1,
+  "volume":0.5,
+}

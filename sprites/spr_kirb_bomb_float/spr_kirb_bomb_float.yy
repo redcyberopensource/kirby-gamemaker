@@ -28,7 +28,7 @@
   ],
   "name":"spr_kirb_bomb_float",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"Bomb",
     "path":"folders/Sprites/Kirby/Bomb.yy",
@@ -96,7 +96,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":64,
-    "yorigin":72,
+    "yorigin":64,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

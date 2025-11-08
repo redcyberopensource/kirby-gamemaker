@@ -12,8 +12,8 @@
   "duration":24.05875,
   "name":"bgm_get_rekt",
   "parent":{
-    "name":"BGM",
-    "path":"folders/Sounds/BGM.yy",
+    "name":"Misc",
+    "path":"folders/Sounds/BGM/Misc.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

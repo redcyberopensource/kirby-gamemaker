@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_asgore_truck",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":174.7853,
+  "name":"bgm_asgore_truck",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Sounds/BGM/Misc.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_asgore_truck.mp3",
+  "type":1,
+  "volume":0.5,
+}

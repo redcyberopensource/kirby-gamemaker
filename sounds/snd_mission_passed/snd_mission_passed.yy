@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_mission_passed",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":7.549375,
+  "name":"snd_mission_passed",
+  "parent":{
+    "name":"Jingles",
+    "path":"folders/Sounds/SFX/Jingles.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_mission_passed.mp3",
+  "type":1,
+  "volume":0.5,
+}

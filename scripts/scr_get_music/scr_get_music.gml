@@ -46,8 +46,8 @@ function get_music(){
 		break;
 		
 		case rm_level_0_4:
-			if (global.current_music != bgm_miniboss) audio_stop_all()
-			global.current_music = bgm_miniboss
+			if (global.current_music != bgm_boss_1) audio_stop_all()
+			global.current_music = bgm_boss_1
 		break;
 	}
 }

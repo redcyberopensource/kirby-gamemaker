@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_ghost",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":45.531418,
+  "name":"bgm_ghost",
+  "parent":{
+    "name":"World 1",
+    "path":"folders/Sounds/BGM/World 1.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_ghost.mp3",
+  "type":0,
+  "volume":0.5,
+}
