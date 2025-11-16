@@ -6,8 +6,8 @@
   "name":"obj_pbs_right",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bosses",
-    "path":"folders/Objects/Bosses.yy",
+    "name":"Poppy Brothers Senior!",
+    "path":"folders/Objects/Bosses/Poppy Brothers Senior!.yy",
   },
   "parentObjectId":null,
   "persistent":false,

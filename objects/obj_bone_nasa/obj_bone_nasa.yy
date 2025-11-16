@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_pbs_left",
+  "%Name":"obj_bone_nasa",
   "eventList":[],
   "managed":true,
-  "name":"obj_pbs_left",
+  "name":"obj_bone_nasa",
   "overriddenProperties":[],
   "parent":{
-    "name":"Poppy Brothers Senior!",
-    "path":"folders/Objects/Bosses/Poppy Brothers Senior!.yy",
+    "name":"Sansius of SANS SANS SANS",
+    "path":"folders/Objects/Bosses/Sansius of SANS SANS SANS.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"par_hazard",
+    "path":"objects/par_hazard/par_hazard.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_trigger_blue",
-    "path":"sprites/spr_trigger_blue/spr_trigger_blue.yy",
+    "name":"sprit_bononine",
+    "path":"sprites/sprit_bononine/sprit_bononine.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

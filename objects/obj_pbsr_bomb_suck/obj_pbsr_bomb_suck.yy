@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Bomb",
-    "path":"folders/Objects/Bosses/Bomb.yy",
+    "path":"folders/Objects/Bosses/Poppy Brothers Senior!/Bomb.yy",
   },
   "parentObjectId":{
     "name":"par_enemy_suck",

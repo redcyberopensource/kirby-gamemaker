@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_pbs_left",
-  "eventList":[],
+  "%Name":"obj_room_change_trigger",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_kirb_shoot","path":"objects/obj_kirb_shoot/obj_kirb_shoot.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_pbs_left",
+  "name":"obj_room_change_trigger",
   "overriddenProperties":[],
   "parent":{
-    "name":"Poppy Brothers Senior!",
-    "path":"folders/Objects/Bosses/Poppy Brothers Senior!.yy",
+    "name":"ZA WORLDO",
+    "path":"folders/Objects/ZA WORLDO.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,9 +30,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_trigger_blue",
-    "path":"sprites/spr_trigger_blue/spr_trigger_blue.yy",
+    "name":"spr_trigger_purple",
+    "path":"sprites/spr_trigger_purple/spr_trigger_purple.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

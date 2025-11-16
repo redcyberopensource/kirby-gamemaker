@@ -10,8 +10,8 @@
   "name":"obj_poppy_bros_sr_dead",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bosses",
-    "path":"folders/Objects/Bosses.yy",
+    "name":"Poppy Brothers Senior!",
+    "path":"folders/Objects/Bosses/Poppy Brothers Senior!.yy",
   },
   "parentObjectId":null,
   "persistent":false,

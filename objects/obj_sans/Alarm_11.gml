@@ -1,0 +1,1 @@
+can_stop = true
