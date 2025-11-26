@@ -45,3 +45,4 @@ else
 {
 	draw_text(x+op_border+450, y+op_border+op_space*3, "Off")
 }
+draw_text(x+op_border+450, y+op_border+op_space*4, global.window_size)

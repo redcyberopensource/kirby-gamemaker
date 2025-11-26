@@ -47,3 +47,10 @@ global.topics[$ "the npc is very angey"] = [
 global.topics[$ "hahahahaha very very"] = [
 	TEXT("XD")
 ];
+
+global.topics[$ "Sans Defeat"] = [
+	SPEAKER("", spr_sans_portrait, PORTRAIT_SIDE.LEFT),
+	TEXT("well shit"),
+	TEXT("guess I gotta skidaddle"),
+	TEXT("gotta explain to my boss some pink creatre was trying to kill me"),
+];

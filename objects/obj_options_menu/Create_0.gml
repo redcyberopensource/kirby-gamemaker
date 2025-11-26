@@ -10,6 +10,9 @@ option[0] = "Music";
 option[1] = "Volume";
 option[2] = "Screen Mode";
 option[3] = "Vsync";
-option[4] = "Sound Test";
+option[4] = "Window Size";
+option[5] = "Controls";
+option[6] = "Delete Save Data";
+option[7] = "Sound Test";
 
 op_length = array_length(option)

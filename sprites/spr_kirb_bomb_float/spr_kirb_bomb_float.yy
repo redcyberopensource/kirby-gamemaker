@@ -17,6 +17,7 @@
     {"$GMSpriteFrame":"","%Name":"8be0e5d3-d227-44eb-a18d-7ba5518cd46f","name":"8be0e5d3-d227-44eb-a18d-7ba5518cd46f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"2a942c15-f3b6-48d9-9f62-ade77cecac3e","name":"2a942c15-f3b6-48d9-9f62-ade77cecac3e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"ecef5c63-ffcf-4c9c-a070-e33c9d38d1f1","name":"ecef5c63-ffcf-4c9c-a070-e33c9d38d1f1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"49f3eb24-e00d-42b3-bbcf-a39b62324b37","name":"49f3eb24-e00d-42b3-bbcf-a39b62324b37","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"","%Name":"f7c7baf0-b805-452e-a456-c54528ef0d3f","name":"f7c7baf0-b805-452e-a456-c54528ef0d3f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
@@ -54,7 +55,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":6.0,
+    "length":7.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -89,8 +90,11 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ecef5c63-ffcf-4c9c-a070-e33c9d38d1f1","path":"sprites/spr_kirb_bomb_float/spr_kirb_bomb_float.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"3c11cafe-2b6d-447e-9484-ca43e2e975bc","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"49f3eb24-e00d-42b3-bbcf-a39b62324b37","path":"sprites/spr_kirb_bomb_float/spr_kirb_bomb_float.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2d408ed1-1e4b-438d-b63c-7264901c321d","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f7c7baf0-b805-452e-a456-c54528ef0d3f","path":"sprites/spr_kirb_bomb_float/spr_kirb_bomb_float.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0aca14b9-5c80-460a-9e03-ec58e3208425","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"0aca14b9-5c80-460a-9e03-ec58e3208425","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

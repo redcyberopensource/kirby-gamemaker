@@ -89,6 +89,10 @@ setTopic = function(topic) {
 next = function() {
 	current_action++;
 	if (current_action >= array_length(actions)) {
+		if instance_exists(par_npc)
+		{
+			with (par_npc) event_user(0)
+		}
 		instance_destroy();
 	}
 	else {

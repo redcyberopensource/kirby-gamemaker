@@ -58,4 +58,30 @@ switch (pos)
 			display_reset(0,global.vscync);
 		}
 	break;
+	
+	case 4:
+		if (key_left_pressed) && (global.window_size > 1)
+		{
+			global.window_size -= 1;
+		}
+		else if (key_right_pressed) && (global.window_size < 3)
+		{
+			global.window_size += 1;
+		}
+	break;
+}
+
+switch (global.window_size)
+{
+	case 1:
+		window_set_size(640,480);
+	break;
+	
+	case 2:
+		window_set_size(960,720);
+	break;
+	
+	case 3:
+		window_set_size(1440,1080);
+	break;
 }

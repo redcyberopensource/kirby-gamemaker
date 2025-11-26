@@ -42,6 +42,7 @@ if (keyboard_check_pressed(vk_enter)) || (keyboard_check_pressed(ord("Z"))) && (
 		case 1:
 			if (file_exists("save2.txt"))
 			{
+				can_use = false;
 				instance_create_depth(x, y, -2, obj_confirm)
 			}
 			else
@@ -54,6 +55,7 @@ if (keyboard_check_pressed(vk_enter)) || (keyboard_check_pressed(ord("Z"))) && (
 		case 2:
 			if (file_exists("save3.txt"))
 			{
+				can_use = false;
 				instance_create_depth(x, y, -2, obj_confirm)
 			}
 			else

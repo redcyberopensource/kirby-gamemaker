@@ -14,6 +14,23 @@ function settings_load(){
 	global.vscync = (ini_read_real("Settings", "Vsync", false))
 	if (global.vscync) set_vsync()
 	
+	global.window_size = (ini_read_real("Settings", "Window_Size", 2));
+	
+	switch (global.window_size)
+	{
+		case 1:
+			window_set_size(640,480);
+		break;
+	
+		case 2:
+			window_set_size(960,720);
+		break;
+	
+		case 3:
+			window_set_size(1440,1080);
+		break;
+	}
+	
 	ini_close()
 	
 	settings_save()

@@ -23,7 +23,7 @@
   ],
   "name":"spr_plane",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Sans",
     "path":"folders/Sprites/Bosses/Sans.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":64,
-    "yorigin":28,
+    "yorigin":-8,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

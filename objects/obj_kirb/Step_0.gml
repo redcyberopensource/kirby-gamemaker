@@ -11,13 +11,16 @@ key_action = keyboard_check(ord("X"))
 key_discard_ability = keyboard_check_pressed(vk_shift)
 key_dodge = keyboard_check_pressed(ord("C"))
 
+var move = key_right - key_left;
+var hsp_final = hsp + hspeed
+
+
 if (dodge)
 {
 	can_move = false;
 }
 
-var move = key_right - key_left;
-var hsp_final = hsp + hspeed
+
 
 //Moving
 if (can_move == true)
@@ -277,143 +280,6 @@ if (mouth_full)
 }
 
 
-//Abilities
-if (mouth_full = false) && (!float)
-{
-	switch (global.powerup)
-	{
-		case 0: //No ability
-			if (key_action_pressed)
-			{
-				ID = instance_create_depth(x, y, 1, obj_particle_suck)
-				with ID
-				{
-					image_xscale = obj_kirb.image_xscale
-				}
-	
-				can_turn = false;
-				can_move = false;
-				can_float = false;
-				spr_idle = spr_kirb_suck;
-				spr_fall = spr_kirb_suck;
-				spr_jump = spr_kirb_suck;
-				spr_run = spr_kirb_suck;
-				spr_walk = spr_kirb_suck
-				
-				can_play_inhale = true
-				audio_play_sound(snd_kirb_inhale, 5, false)
-				alarm[6] = 50
-			}
-			else if (!key_action)
-			{
-				if (!instance_exists(par_enemy_suck))
-				{
-					if instance_exists(obj_particle_suck)
-					{
-						with obj_particle_suck instance_destroy()
-						can_turn = true;
-						can_move = true;
-						can_dash = true;
-						can_float = true;
-						spr_idle = spr_idle_default;
-						spr_fall = spr_fall_default;
-						spr_jump = spr_jump_default;
-						spr_walk = spr_walk_default;
-						spr_run = spr_run_default;
-						audio_stop_sound(snd_kirb_inhale)
-						audio_stop_sound(snd_kirb_inhale_1)
-						can_play_inhale = false;
-					}
-				}
-			}
-		break;
-		
-		case 1: //Fire ability
-			if (key_action_pressed) && (can_use_ability)
-			{
-				ID = instance_create_depth(x, y+irandom_range(-12, 12), 1, obj_flamethrower)
-				with ID
-				{
-					image_xscale = obj_kirb.image_xscale
-					hspeed = obj_kirb.image_xscale * 10
-				}
-	
-				can_turn = false;
-				can_move = false;
-				can_float = false;
-				spr_idle = spr_kirb_fire_flamethrower;
-				spr_fall = spr_kirb_fire_flamethrower;
-				spr_jump = spr_kirb_fire_flamethrower;
-				spr_run = spr_kirb_fire_flamethrower;
-				spr_walk = spr_kirb_fire_flamethrower;
-			}
-			else if (!key_action)
-			{
-				//with obj_particle_suck instance_destroy()
-				with obj_flamethrower instance_destroy()
-				can_turn = true;
-				can_move = true;
-				can_float = true;
-				can_dash = true
-				spr_idle = spr_idle_default;
-				spr_fall = spr_fall_default;
-				spr_jump = spr_jump_default;
-				spr_walk = spr_walk_default;
-				spr_run = spr_run_default;
-			}
-		break;
-		
-		case 2: //Cutter ability
-			if (key_action_pressed) && (can_use_ability)
-			{
-				can_turn = false;
-				can_move = false;
-				can_float = false;
-				spr_idle = spr_kirb_cutter_boomerang;
-				spr_fall = spr_kirb_cutter_boomerang;
-				spr_jump = spr_kirb_cutter_boomerang;
-				spr_run = spr_kirb_cutter_boomerang;
-				spr_walk = spr_kirb_cutter_boomerang;
-				alarm[1] = 4
-				alarm[0] = 12
-			}
-			else if (!key_action)
-			{
-				//with obj_particle_suck instance_destroy()
-				can_turn = true;
-				can_move = true;
-				can_float = true;
-				can_dash = true
-			}
-		break;
-		
-		case 3: //Bomb ability
-			if (key_action_pressed) && (can_use_ability)
-			{
-				can_turn = false;
-				can_move = false;
-				can_float = false;
-				spr_idle = spr_kirb_bomb_throw;
-				spr_fall = spr_kirb_bomb_throw;
-				spr_jump = spr_kirb_bomb_throw;
-				spr_run = spr_kirb_bomb_throw;
-				spr_walk = spr_kirb_bomb_throw;
-				alarm[2] = 10
-				alarm[0] = 17
-			}
-			else if (!key_action)
-			{
-				//with obj_particle_suck instance_destroy()
-				can_turn = true;
-				can_move = true;
-				can_float = true;
-				can_dash = true
-			}
-		break;
-	}
-}
-
-
 if place_meeting(x, y, par_enemy_suck)
 {
 	can_hurt = false;
@@ -476,59 +342,12 @@ if (mouth_full) && (key_action_pressed)
 	can_move = true
 	can_float = true;
 	can_dash = true;
-	mouth_full = false
 	alarm[0] = 6
 	
 	audio_play_sound(snd_kirb_spit, 5, false)
 }
-
-//Switch animations
-switch global.powerup
-{
-	case 0:
-		spr_fall_default = spr_kirb_fall;
-		spr_jump_default = spr_kirb_jump;
-		spr_idle_default = spr_kirb_idle;
-		spr_walk_default = spr_kirb_walk;
-		spr_run_default = spr_kirb_run;
-		spr_float_default = spr_kirby_float;
-		spr_float_idle_default = spr_kirby_float_idle;
-		spr_float_halt_default = spr_kirb_float_halt;
-	break;
-	
-	case 1:
-		spr_fall_default = spr_kirb_fire_fall;
-		spr_jump_default = spr_kirb_fire_jump;
-		spr_idle_default = spr_kirb_fire_idle;
-		spr_walk_default = spr_kirb_fire_walk;
-		spr_run_default = spr_kirb_fire_run;
-		spr_float_default = spr_kirb_fire_float;
-		spr_float_idle_default = spr_kirb_fire_float_idle;
-		spr_float_halt_default = spr_kirb_fire_float_halt;
-	break;
-	
-	case 2:
-		spr_fall_default = spr_kirb_cutter_fall;
-		spr_jump_default = spr_kirb_cutter_jump;
-		spr_idle_default = spr_kirb_cutter_idle;
-		spr_walk_default = spr_kirb_cutter_walk;
-		spr_run_default = spr_kirb_cutter_run;
-		spr_float_default = spr_kirb_cutter_float;
-		spr_float_idle_default = spr_kirb_cutter_float_idle;
-		spr_float_halt_default = spr_kirb_cutter_float_halt;
-	break;
-	
-	case 3:
-		spr_fall_default = spr_kirb_bomb_fall;
-		spr_jump_default = spr_kirb_bomb_jump;
-		spr_idle_default = spr_kirb_bomb_idle;
-		spr_walk_default = spr_kirb_bomb_walk;
-		spr_run_default = spr_kirb_bomb_run;
-		spr_float_default = spr_kirb_bomb_float;
-		spr_float_idle_default = spr_kirb_bomb_float_idle;
-		spr_float_halt_default = spr_kirb_bomb_float_halt;
-	break;
-}
+get_abilities()
+copy_animations()
 
 //Discard ability
 if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))

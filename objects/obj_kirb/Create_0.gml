@@ -23,6 +23,10 @@ hsp_forced_max = 5
 dodge = false;
 can_dodge = true;
 
+cutter_dash = false;
+cutter_drop = false;
+
+
 mouth_full = false;
 dash_counter = 0;
 

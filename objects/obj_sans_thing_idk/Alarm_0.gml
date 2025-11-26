@@ -1,0 +1,1 @@
+startDialogue("Sans Defeat")

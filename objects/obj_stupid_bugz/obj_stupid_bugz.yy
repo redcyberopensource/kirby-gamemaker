@@ -12,10 +12,7 @@
     "name":"Stupid Bugz",
     "path":"folders/Objects/Enemies/Stupid Bugz.yy",
   },
-  "parentObjectId":{
-    "name":"par_hazard",
-    "path":"objects/par_hazard/par_hazard.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

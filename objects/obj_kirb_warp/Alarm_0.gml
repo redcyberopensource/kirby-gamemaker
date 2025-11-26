@@ -1,1 +1,1 @@
-room_goto(rm_level_1_4)
+if (room_exists(rm_warp)) room_goto(rm_warp) else room_goto(rm_invalid)
