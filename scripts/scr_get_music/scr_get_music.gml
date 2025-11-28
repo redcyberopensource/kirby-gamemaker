@@ -32,6 +32,7 @@ function get_music(){
 		case rm_level_1_1:
 		case rm_level_1_2:
 		case rm_level_1_3:
+		case rm_level_1_6:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1
 		break;

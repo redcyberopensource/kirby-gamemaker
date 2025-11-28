@@ -104,8 +104,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Backgrounds",
-    "path":"folders/Backgrounds.yy",
+    "name":"Dogcheck",
+    "path":"folders/Backgrounds/Dogcheck.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

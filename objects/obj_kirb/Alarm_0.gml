@@ -8,6 +8,7 @@ can_use_ability = true
 mouth_full = false
 instance_destroy(obj_cutter_dash_hitbox)
 acc = 0.2
+grv = 0.25
 cutter_dash = false;
 can_move = true;
 can_dash = true;

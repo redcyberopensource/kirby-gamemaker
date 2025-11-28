@@ -53,7 +53,7 @@ if (mouth_full = false) && (!float)
 		break;
 		
 		case 1: //Fire ability
-			if (key_action_pressed) && (can_use_ability)
+			if (key_action_pressed) && (can_use_ability) && !((dash_counter >= 2) && (can_use_ability) && (!burning) && (!place_meeting(x, y+1, obj_solid)))
 			{
 				ID = instance_create_depth(x, y+irandom_range(-12, 12), 1, obj_flamethrower)
 				with ID
@@ -62,7 +62,7 @@ if (mouth_full = false) && (!float)
 					hspeed = obj_kirb.image_xscale * 10
 				}
 	
-				can_turn = false;
+				//can_turn = false;
 				can_move = false;
 				can_float = false;
 				spr_idle = spr_kirb_fire_flamethrower;
@@ -71,7 +71,7 @@ if (mouth_full = false) && (!float)
 				spr_run = spr_kirb_fire_flamethrower;
 				spr_walk = spr_kirb_fire_flamethrower;
 			}
-			else if (!key_action)
+			else if (!key_action) && !((dash_counter >= 2) && (can_use_ability) && (!burning) && (!place_meeting(x, y+1, obj_solid)))
 			{
 				//with obj_particle_suck instance_destroy()
 				with obj_flamethrower instance_destroy()
@@ -85,7 +85,30 @@ if (mouth_full = false) && (!float)
 				spr_walk = spr_walk_default;
 				spr_run = spr_run_default;
 			}
-		break;
+			
+			if (key_action_pressed) && (dash_counter >= 2) && (can_use_ability) && (!burning) && (!place_meeting(x, y+1, obj_solid))
+			{
+				burning = true
+				hsp = -2*image_xscale
+				if (alarm[7] < 0) alarm[7] = 8
+			}
+			if (burning)
+			{
+				acc = 0;
+				sprite_index = spr_kirb_fire_burning_start;
+				spr_idle = spr_kirb_fire_burning_start;
+				spr_fall = spr_kirb_fire_burning_start;
+				spr_jump = spr_kirb_fire_burning_start;
+				spr_run = spr_kirb_fire_burning_start;
+				spr_walk = spr_kirb_fire_burning_start;
+				can_move = false;
+				can_turn = false;
+				can_float = false;
+				vsp = 0;
+				grv = 0;
+				
+			}
+ 		break;
 		
 		case 2: //Cutter ability
 			if (key_action_pressed) && (can_use_ability) && (!(cutter_dash || cutter_drop))
