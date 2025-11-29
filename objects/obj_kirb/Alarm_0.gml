@@ -6,6 +6,7 @@ spr_run = spr_run_default;
 hsp_max = 3
 can_use_ability = true
 mouth_full = false
+burning = false
 instance_destroy(obj_cutter_dash_hitbox)
 acc = 0.2
 grv = 0.25

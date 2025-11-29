@@ -26,7 +26,8 @@ can_dodge = true;
 cutter_dash = false;
 cutter_drop = false;
 
-burning = false
+burning_start = false
+burning = false;
 
 mouth_full = false;
 dash_counter = 0;

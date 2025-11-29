@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_amalgam",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":80.03917,
+  "name":"bgm_amalgam",
+  "parent":{
+    "name":"World 7",
+    "path":"folders/Sounds/BGM/World 7.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_amalgam.mp3",
+  "type":1,
+  "volume":0.5,
+}

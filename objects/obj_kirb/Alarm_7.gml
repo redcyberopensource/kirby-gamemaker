@@ -1,11 +1,2 @@
-sprite_index = spr_kirb_fire_burning;
-spr_idle = spr_kirb_fire_burning;
-spr_fall = spr_kirb_fire_burning;
-spr_jump = spr_kirb_fire_burning;
-spr_run = spr_kirb_fire_burning;
-spr_walk = spr_kirb_fire_burning;
-burning = false
-can_move = false
-hsp_max = 8
-hsp = 8*image_xscale
+burning = true
 alarm[0] = 60;

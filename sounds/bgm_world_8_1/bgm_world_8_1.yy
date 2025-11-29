@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_world_8_1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":274.4424,
+  "name":"bgm_world_8_1",
+  "parent":{
+    "name":"World 8",
+    "path":"folders/Sounds/BGM/World 8.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_world_8_1.mp3",
+  "type":1,
+  "volume":0.25,
+}

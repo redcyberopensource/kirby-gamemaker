@@ -88,11 +88,11 @@ if (mouth_full = false) && (!float)
 			
 			if (key_action_pressed) && (dash_counter >= 2) && (can_use_ability) && (!burning) && (!place_meeting(x, y+1, obj_solid))
 			{
-				burning = true
+				burning_start = true
 				hsp = -2*image_xscale
 				if (alarm[7] < 0) alarm[7] = 8
 			}
-			if (burning)
+			if (burning_start)
 			{
 				acc = 0;
 				sprite_index = spr_kirb_fire_burning_start;
@@ -107,6 +107,21 @@ if (mouth_full = false) && (!float)
 				vsp = 0;
 				grv = 0;
 				
+			}
+			
+			if (burning)
+			{
+				burning_start = false
+				can_move = false
+				can_turn = false
+				sprite_index = spr_kirb_fire_burning;
+				spr_idle = spr_kirb_fire_burning;
+				spr_fall = spr_kirb_fire_burning;
+				spr_jump = spr_kirb_fire_burning;
+				spr_run = spr_kirb_fire_burning;
+				spr_walk = spr_kirb_fire_burning;
+				hsp_max = 8
+				hsp = 8*image_xscale
 			}
  		break;
 		

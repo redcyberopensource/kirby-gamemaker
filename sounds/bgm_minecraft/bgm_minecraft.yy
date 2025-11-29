@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_minecraft",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":127.94775,
+  "name":"bgm_minecraft",
+  "parent":{
+    "name":"World 1",
+    "path":"folders/Sounds/BGM/World 1.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_minecraft.mp3",
+  "type":1,
+  "volume":0.5,
+}

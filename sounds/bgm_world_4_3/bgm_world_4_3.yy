@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_world_4_3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":186.54037,
+  "name":"bgm_world_4_3",
+  "parent":{
+    "name":"World 4",
+    "path":"folders/Sounds/BGM/World 4.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_world_4_3.mp3",
+  "type":1,
+  "volume":0.5,
+}
