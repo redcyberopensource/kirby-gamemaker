@@ -31,7 +31,7 @@ if (keyboard_check_pressed(ord("Z")))
 
 if (global.hp < 1)
 {
-	instance_create_depth(x, y, -1, obj_kirby_die)
+	instance_create_depth(x, y, -1, obj_kirb_die)
 	instance_destroy()
 }
 

@@ -1,0 +1,1 @@
+if (kirb_inside) spd += 0.5

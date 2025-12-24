@@ -423,14 +423,14 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 else if (place_meeting(x, y, par_enemy)) && (global.hp < 1) && (can_hurt)
 {
 	mouth_full = false;
-	instance_create_depth(x, y, -3, obj_kirby_die)
+	instance_create_depth(x, y, -3, obj_kirb_die)
 	global.hp = 0
 	instance_destroy()
 }
 if (global.hp < 1) //&& (can_hurt)
 {
 	mouth_full = false;
-	instance_create_depth(x, y, -3, obj_kirby_die)
+	instance_create_depth(x, y, -3, obj_kirb_die)
 	//global.hp = 0
 	instance_destroy()
 }
