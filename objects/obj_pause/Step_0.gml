@@ -1,11 +1,18 @@
+if (room = rm_title) || (room = rm_menu)
+{
+	instance_destroy()
+}
+
 if (global.powerup = 0)
 {
-	pause_text[0] = "KIRBY"
-	pause_text[1] = "eldrich horror being"
-	pause_text[2] = "kirby kirby kirby kirby kirby kirby"
-	pause_text[3] = "press x to devour living being"
-	pause_text[4] = "press down to swallow"
-	pause_text[5] = ""
+		pause_text[0] = "KIRBY"
+		pause_text[1] = "eldrich horror being"
+		pause_text[2] = "kirby kirby kirby kirby kirby kirby"
+		pause_text[3] = ""
+		pause_text[4] = ""
+		pause_text[5] = ""
+		pause_text[6] = ""
+		list = spr_list_normal
 }
 else if (global.powerup = 1)
 {
@@ -15,6 +22,8 @@ else if (global.powerup = 1)
 	pause_text[3] = "H E L P"
 	pause_text[4] = ""
 	pause_text[5] = ""
+	pause_text[6] = ""
+	list = spr_list_fire
 }
 else if (global.powerup = 2)
 {
@@ -24,14 +33,52 @@ else if (global.powerup = 2)
 	pause_text[3] = "cut"
 	pause_text[4] = ""
 	pause_text[5] = ""
+	pause_text[6] = ""
+	list = spr_list_cutter
 }
 
 else if (global.powerup = 3)
 {
-	pause_text[0] = "HE"
-	pause_text[1] = "HAS"
-	pause_text[2] = "A"
-	pause_text[3] = "BOMB"
-	pause_text[4] = "AAAAAA"
+	pause_text[0] = "BOMB"
+	pause_text[1] = "HE"
+	pause_text[2] = "HAS"
+	pause_text[3] = "A"
+	pause_text[4] = "BOMB"
 	pause_text[5] = ""
+	pause_text[6] = ""
+	list = spr_list_bomb
+}
+
+else if (global.powerup = 4)
+{
+	pause_text[0] = "BITCH! YOU STOLE LINK'S HAT!"
+	pause_text[1] = "MANY YEARS AGO PRINCE DARKNESS GANNON"
+	pause_text[2] = "STOLEONE OF THE TRIFORCE WITH POWER."
+	pause_text[3] = "PRINCESS ZELDA HAD ONE OF THE TRIFORCE"
+	pause_text[4] = "WITH WISDOM SHE DIVIDED IT INTO S UNITS"
+	pause_text[5] = "TO HIDE IT FROM GANNON BEFORE SHE"
+	pause_text[6] = "WAS CAPTURED"
+	list = spr_list_sword
+}
+
+if (keyboard_check_pressed(vk_down) || gamepad_button_check(0, gp_padd))
+{
+	page = 1
+}
+if (keyboard_check_pressed(vk_up) || gamepad_button_check(0, gp_padu))
+{
+	page = 0
+}
+
+if (paused) && (room != rm_hub_1)
+{
+	instance_create_depth(display_get_gui_width()/2,display_get_gui_height()-50,-999, obj_pause_menu)
+}
+
+if (!paused) && (instance_exists(obj_pause_menu))
+{
+	with obj_pause_menu
+	{
+		instance_destroy()
+	}
 }

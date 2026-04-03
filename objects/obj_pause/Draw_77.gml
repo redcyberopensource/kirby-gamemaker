@@ -14,7 +14,7 @@ if (paused)
 	surface_reset_target();
 }
 
-if (keyboard_check_pressed(ord("P")))
+if (keyboard_check_pressed(ord("P")) || gamepad_button_check_pressed(0, gp_start))
 {
 	if (!paused)
 	{

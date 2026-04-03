@@ -6,8 +6,8 @@
   "name":"obj_slope",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Solid",
+    "path":"folders/Objects/Solid.yy",
   },
   "parentObjectId":{
     "name":"obj_solid",
@@ -29,7 +29,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"spr_sloper",
     "path":"sprites/spr_sloper/spr_sloper.yy",

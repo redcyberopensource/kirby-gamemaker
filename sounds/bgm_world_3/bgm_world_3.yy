@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":3,
   "conversionMode":0,
   "duration":140.0163,
   "name":"bgm_world_3",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"bgm_world_3.mp3",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

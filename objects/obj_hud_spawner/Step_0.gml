@@ -1,0 +1,1 @@
+if (!instance_exists(obj_game_hud)) instance_create_depth(x, y, -20, obj_game_hud)

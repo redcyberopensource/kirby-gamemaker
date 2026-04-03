@@ -1,0 +1,1 @@
+kirb_inside = false;

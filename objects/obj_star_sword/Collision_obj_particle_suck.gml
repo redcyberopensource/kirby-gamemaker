@@ -1,0 +1,1 @@
+instance_change(obj_star_sword_suck, true)

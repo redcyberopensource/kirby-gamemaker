@@ -69,6 +69,13 @@ switch (pos)
 			global.window_size += 1;
 		}
 	break;
+	
+	case 6:
+		if (key_accept)
+		{
+			room_goto(rm_file_select_delete)
+		}
+	break;
 }
 
 switch (global.window_size)

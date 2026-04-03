@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_thwomp",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":0.982381,
+  "name":"snd_thwomp",
+  "parent":{
+    "name":"General",
+    "path":"folders/Sounds/SFX/General.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_thwomp.ogg",
+  "type":0,
+  "volume":0.5,
+}

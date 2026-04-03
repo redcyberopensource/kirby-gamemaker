@@ -19,6 +19,7 @@ for (var i = 0; i < op_length; i++)
 }
 
 draw_set_halign(fa_right);
+draw_set_color(c_white)
 
 if (global.can_play_music = true)
 {

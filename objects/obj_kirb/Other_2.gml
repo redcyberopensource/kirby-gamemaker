@@ -3,6 +3,8 @@ global.hp = 6;
 global.powerup_inhaled = 0;
 global.lives = 3
 
+global.oneups = 0;
+
 //Hub
 global.hub_room = rm_hub_1
 

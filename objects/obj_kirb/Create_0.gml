@@ -29,6 +29,9 @@ cutter_drop = false;
 burning_start = false
 burning = false;
 
+sword_drop = false;
+sword_dash = false;
+
 mouth_full = false;
 dash_counter = 0;
 

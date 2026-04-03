@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Normal",
-    "path":"folders/Sprites/Pause Silouettes/Normal.yy",
+    "path":"folders/Sprites/HUD/Pause/Pause Silouettes/Normal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,3 +1,5 @@
+angle += 2
+
 vsp += grv;
 
 //Horizontal collision

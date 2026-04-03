@@ -1,0 +1,1 @@
+draw_sprite(spr_solid_oneway, image_index, x, y)

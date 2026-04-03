@@ -1,5 +1,10 @@
 image_index = option
 
+if (instance_exists(obj_game_hud))
+{
+	with obj_game_hud instance_destroy()
+}
+
 if (keyboard_check_pressed(vk_left)) && (option > 0)
 {
 	option -= 1

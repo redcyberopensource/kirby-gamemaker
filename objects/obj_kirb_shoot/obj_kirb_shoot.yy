@@ -16,8 +16,8 @@
   "name":"obj_kirb_shoot",
   "overriddenProperties":[],
   "parent":{
-    "name":"Kirby",
-    "path":"folders/Objects/Kirby.yy",
+    "name":"Warp Star",
+    "path":"folders/Objects/Kirby/Warp Star.yy",
   },
   "parentObjectId":null,
   "persistent":false,

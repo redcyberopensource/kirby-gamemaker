@@ -123,6 +123,20 @@ if (mouth_full = false) && (!float)
 				hsp_max = 8
 				hsp = 8*image_xscale
 			}
+			
+			if (burning) && (place_meeting(x+hsp, y, obj_solid))
+			{
+				burning = false
+				hsp = -1*image_xscale
+				vsp = -4
+				spr_jump = spr_fall_default;
+				spr_fall = spr_fall_default;
+				spr_idle = spr_idle_default;
+				spr_walk = spr_walk_default;
+				spr_run = spr_run_default;
+				
+				alarm[0] = 5
+			}
  		break;
 		
 		case 2: //Cutter ability
@@ -203,7 +217,7 @@ if (mouth_full = false) && (!float)
 		break;
 		
 		case 3: //Bomb ability
-			if (key_action_pressed) && (can_use_ability)
+			if (key_action_pressed) && (!key_down) && (can_use_ability)
 			{
 				can_turn = false;
 				can_move = false;
@@ -216,6 +230,10 @@ if (mouth_full = false) && (!float)
 				alarm[2] = 10
 				alarm[0] = 17
 			}
+			if (key_action_pressed) && (key_down) && (can_use_ability)
+			{
+				instance_create_depth(x, y, -1, obj_bomb_dropped)
+			}
 			else if (!key_action)
 			{
 				//with obj_particle_suck instance_destroy()
@@ -223,6 +241,91 @@ if (mouth_full = false) && (!float)
 				can_move = true;
 				can_float = true;
 				can_dash = true
+			}
+		break;
+		
+		case 4: //Sword ability
+			if (key_action_pressed) && (!float) && (can_use_ability) && (sword_dash = false)
+			{
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				image_index = 0;
+				instance_create_depth(x, y, 0, obj_sword_slash_hit)
+				spr_idle = spr_kirb_sword_slash;
+				spr_fall = spr_kirb_sword_slash;
+				spr_jump = spr_kirb_sword_slash;
+				spr_run = spr_kirb_sword_slash;
+				spr_walk = spr_kirb_sword_slash;
+				alarm[0] = 16
+			}
+			
+			if (key_action_pressed) && (!float) && (key_up) && (can_use_ability)
+			{
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				can_use_ability = false
+				image_index = 0;
+				//grv = 0.1;
+				vsp = -10;
+				instance_create_depth(x, y, 0, obj_sword_upwards_hit)
+				spr_idle = spr_kirb_sword_upward_slash;
+				spr_fall = spr_kirb_sword_upward_slash;
+				spr_jump = spr_kirb_sword_upward_slash;
+				spr_run = spr_kirb_sword_upward_slash;
+				spr_walk = spr_kirb_sword_upward_slash;
+				alarm[0] = 44;
+			}
+			if (key_action_pressed) && (!float) && (key_down) && (can_use_ability) && (!sword_drop)
+			{
+				sword_drop = true
+			}
+			if (sword_drop)
+			{
+				sword_drop = true
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				can_use_ability = false
+				image_index = 0;
+				grv = 0;
+				vsp_fall_max = 15
+				vsp = 15;
+				instance_create_depth(x, y, 0, obj_sword_drop_hit)
+				spr_idle = spr_kirb_sword_drop;
+				spr_fall = spr_kirb_sword_drop;
+				spr_jump = spr_kirb_sword_drop;
+				spr_run = spr_kirb_sword_drop;
+				spr_walk = spr_kirb_sword_drop;
+			}
+			
+			if (sword_drop) && (place_meeting(x, y+1, obj_solid))
+			{
+				sword_drop = false
+				instance_destroy(obj_sword_drop_hit)
+				alarm[0] = 2
+			}
+			
+			if (dash_counter >= 2) && (key_action_pressed) && (!float) && (can_use_ability)
+			{
+				sword_dash = true
+				alarm[0] = 24;
+			}
+			
+			if (sword_dash)
+			{
+				spr_idle = spr_kirb_sword_dash;
+				spr_fall = spr_kirb_sword_dash;
+				spr_jump = spr_kirb_sword_dash;
+				spr_run = spr_kirb_sword_dash;
+				spr_walk = spr_kirb_sword_dash;
+				acc = 0.2
+				hsp = 10*image_xscale
+				can_move = false;
+				can_jump = false;
+				can_turn = false;
+				can_float = false
 			}
 		break;
 	}

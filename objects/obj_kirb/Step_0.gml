@@ -1,15 +1,15 @@
 key_left = keyboard_check(vk_left) || gamepad_button_check(0, gp_padl)
 key_right = keyboard_check(vk_right) || gamepad_button_check(0, gp_padr)
 key_left_pressed = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl)
-key_right_pressed = keyboard_check_pressed(vk_right)
-key_down = keyboard_check(vk_down)
-key_up = keyboard_check(vk_up)
-key_jump = keyboard_check_pressed(ord("Z"))
-key_down_pressed = keyboard_check_pressed(vk_down)
-key_action_pressed = keyboard_check_pressed(ord("X"))
-key_action = keyboard_check(ord("X"))
-key_discard_ability = keyboard_check_pressed(vk_shift)
-key_dodge = keyboard_check_pressed(ord("C"))
+key_right_pressed = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr)
+key_down = keyboard_check(vk_down) || gamepad_button_check(0, gp_padd)
+key_up = keyboard_check(vk_up) || gamepad_button_check(0, gp_padu)
+key_jump = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
+key_down_pressed = keyboard_check_pressed(vk_down) || gamepad_button_check_pressed(0, gp_padd)
+key_action_pressed = keyboard_check_pressed(ord("X")) || gamepad_button_check_pressed(0, gp_face3)
+key_action = keyboard_check(ord("X")) || gamepad_button_check(0, gp_face3)
+key_discard_ability = keyboard_check_pressed(vk_shift) || gamepad_button_check_pressed(0, gp_select)
+key_dodge = keyboard_check_pressed(ord("C")) || gamepad_button_check_pressed(0, gp_paddler) || gamepad_button_check_pressed(0, gp_paddlel)
 
 var move = key_right - key_left;
 var hsp_final = hsp + hspeed
@@ -199,6 +199,13 @@ if (instance_exists(obj_wind))
         hspeed = 0;
     }
 }
+
+//g o  d o w n  s l o p e s
+while (place_meeting(x, y+hsp_max+1, obj_slope) && (!place_meeting(x, y+1, obj_slope)) && vspeed >=0)
+{
+	y += 1
+}
+
 //Vertical movement
 if (place_meeting(x, y+vsp, obj_solid))
 {
@@ -365,6 +372,10 @@ if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))
 		case 3:
 			instance_create_depth(x, y, 0, obj_star_bomb)
 		break;
+		
+		case 4:
+			instance_create_depth(x, y, 0, obj_star_sword)
+		break;
 	}
 	
 	global.powerup = 0;
@@ -396,6 +407,10 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		
 		case 3:
 			instance_create_depth(x, y, 0, obj_star_bomb)
+		break;
+		
+		case 4:
+			instance_create_depth(x, y, 0, obj_star_sword)
 		break;
 	}
 	
@@ -448,6 +463,7 @@ if (place_meeting(x, y, par_instakill)) && (can_hurt)
 //G A M E     O V E R
 if (global.lives < 0)
 {
+	with obj_game_hud instance_destroy()
 	room_goto(rm_game_over)
 }
 
