@@ -1,4 +1,4 @@
-image_alpha -= 0.05
+image_alpha -= 0.04
 
 // Decrease the timer by the actual time passed
 
@@ -10,5 +10,5 @@ if (timer > 0) {
 if (timer <= 0) {
     image_alpha = 1;
 	image_blend = make_colour_hsv(random(255), 255, 255);
-	timer = (60000000/135.77)*2;
+	timer = (60000000/135.75)*2;
 }

@@ -328,6 +328,37 @@ if (mouth_full = false) && (!float)
 				can_float = false
 			}
 		break;
+		
+		case 5:
+			if (key_action_pressed) && (can_use_ability) && (!float)
+			{
+				wheel_roll = true;
+			}
+			
+			if (wheel_roll)
+			{
+				spr_idle = spr_kirb_wheel_roll;
+				spr_fall = spr_kirb_wheel_roll;
+				spr_jump = spr_kirb_wheel_roll;
+				spr_run = spr_kirb_wheel_roll;
+				spr_walk = spr_kirb_wheel_roll;
+				hsp = 10* image_xscale;
+				can_move = false;
+				can_turn = false;
+				can_float = false;
+			}
+			
+			if (wheel_roll) && ((place_meeting(x+sign(hsp), y, obj_solid)) || (!key_action))
+			{
+				wheel_roll = false;
+				spr_idle = spr_kirb_wheel_roll_cancel;
+				spr_fall = spr_kirb_wheel_roll_cancel;
+				spr_jump = spr_kirb_wheel_roll_cancel;
+				spr_run = spr_kirb_wheel_roll_cancel;
+				spr_walk = spr_kirb_wheel_roll_cancel;
+				alarm[0] = 8
+			}
+		break;
 	}
 }
 }

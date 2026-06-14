@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":3,
   "conversionMode":0,
-  "duration":108.95671,
+  "duration":137.4563,
   "name":"bgm_world_6_1",
   "parent":{
     "name":"World 6",

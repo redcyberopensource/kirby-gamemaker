@@ -1,3 +1,4 @@
+///@desc Movement, Copy Abilities, Etc.
 key_left = keyboard_check(vk_left) || gamepad_button_check(0, gp_padl)
 key_right = keyboard_check(vk_right) || gamepad_button_check(0, gp_padr)
 key_left_pressed = keyboard_check_pressed(vk_left) || gamepad_button_check_pressed(0, gp_padl)
@@ -376,6 +377,10 @@ if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))
 		case 4:
 			instance_create_depth(x, y, 0, obj_star_sword)
 		break;
+		
+		case 5:
+			instance_create_depth(x, y, 0, obj_star_wheel)
+		break;
 	}
 	
 	global.powerup = 0;
@@ -411,6 +416,10 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		
 		case 4:
 			instance_create_depth(x, y, 0, obj_star_sword)
+		break;
+		
+		case 5:
+			instance_create_depth(x, y, 0, obj_star_wheel)
 		break;
 	}
 	

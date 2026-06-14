@@ -46,4 +46,15 @@ else
 {
 	draw_text(x+op_border+450, y+op_border+op_space*3, "Off")
 }
-draw_text(x+op_border+450, y+op_border+op_space*4, global.window_size)
+if (global.window_size = 1)
+{
+	draw_text(x+op_border+450, y+op_border+op_space*4, "640x480")
+}
+else if (global.window_size = 2)
+{
+	draw_text(x+op_border+450, y+op_border+op_space*4, "920x720")
+}
+else if (global.window_size = 3)
+{
+	draw_text(x+op_border+450, y+op_border+op_space*4, "1440x1080")
+}

@@ -1,3 +1,4 @@
+///@desc Variables
 hsp = 0;
 vsp = 0;
 grv = 0.25;
@@ -16,7 +17,7 @@ can_turn = true;
 can_dash = true;
 can_use_ability = true;
 can_hurt = true
-can_jump = 0
+can_jump = false;
 
 hsp_forced_max = 5
 
@@ -31,6 +32,8 @@ burning = false;
 
 sword_drop = false;
 sword_dash = false;
+
+wheel_roll = false;
 
 mouth_full = false;
 dash_counter = 0;

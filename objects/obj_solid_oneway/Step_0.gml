@@ -11,7 +11,7 @@ if obj_kirb.y < y - 20
 {
 	active = true;
 }
-if obj_kirb.y > y + 5
+if (obj_kirb.y > y + 5) || (active = true && keyboard_check_pressed(vk_down))
 {
 	active = false;
 }

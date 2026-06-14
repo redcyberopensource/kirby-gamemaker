@@ -1,3 +1,4 @@
+///@desc Reset All Veriables
 spr_jump = spr_jump_default;
 spr_fall = spr_fall_default;
 spr_idle = spr_idle_default;

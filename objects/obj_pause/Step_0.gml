@@ -53,19 +53,30 @@ else if (global.powerup = 4)
 {
 	pause_text[0] = "BITCH! YOU STOLE LINK'S HAT!"
 	pause_text[1] = "MANY YEARS AGO PRINCE DARKNESS GANNON"
-	pause_text[2] = "STOLEONE OF THE TRIFORCE WITH POWER."
+	pause_text[2] = "STOLE ONE OF THE TRIFORCE WITH POWER."
 	pause_text[3] = "PRINCESS ZELDA HAD ONE OF THE TRIFORCE"
-	pause_text[4] = "WITH WISDOM SHE DIVIDED IT INTO S UNITS"
+	pause_text[4] = "WITH WISDOM SHE DIVIDED IT INTO 5 UNITS"
 	pause_text[5] = "TO HIDE IT FROM GANNON BEFORE SHE"
 	pause_text[6] = "WAS CAPTURED"
 	list = spr_list_sword
 }
+else if (global.powerup = 5)
+{
+	pause_text[0] = "vroom vroom im a tired"
+	pause_text[1] = "ok seriously this is the best ability"
+	pause_text[2] = "i made in this entire game"
+	pause_text[3] = ""
+	pause_text[4] = ""
+	pause_text[5] = ""
+	pause_text[6] = ""
+	list = spr_list_wheel
+}
 
-if (keyboard_check_pressed(vk_down) || gamepad_button_check(0, gp_padd))
+if (keyboard_check_pressed(vk_down) || gamepad_button_check(0, gp_padd)) && (paused)
 {
 	page = 1
 }
-if (keyboard_check_pressed(vk_up) || gamepad_button_check(0, gp_padu))
+if (keyboard_check_pressed(vk_up) || gamepad_button_check(0, gp_padu)) && (paused)
 {
 	page = 0
 }
