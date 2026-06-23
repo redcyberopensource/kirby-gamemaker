@@ -9,8 +9,8 @@
   "name":"obj_star_spit",
   "overriddenProperties":[],
   "parent":{
-    "name":"Kirby",
-    "path":"folders/Objects/Kirby.yy",
+    "name":"Projectiles",
+    "path":"folders/Objects/Kirby/Projectiles.yy",
   },
   "parentObjectId":{
     "name":"par_porjectile",

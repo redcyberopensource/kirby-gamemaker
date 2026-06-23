@@ -8,6 +8,6 @@ can_turn = true;
 
 dodge = false;
 alarm[5] = 60
-grv = 0.25;
+grv = current_grv;
 image_speed = 1;
 image_alpha = 1

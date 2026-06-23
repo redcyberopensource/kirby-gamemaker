@@ -3,6 +3,8 @@ hsp = 0;
 vsp = 0;
 grv = 0.25;
 
+current_grv = 0.25;
+
 acc = 0.2
 
 hsp_max = 3;

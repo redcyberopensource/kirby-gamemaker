@@ -128,7 +128,7 @@ if (mouth_full = false) && (!float)
 			{
 				burning = false
 				hsp = -1*image_xscale
-				vsp = -4
+				vsp = (-4 * (sign(grv)))
 				spr_jump = spr_fall_default;
 				spr_fall = spr_fall_default;
 				spr_idle = spr_idle_default;
@@ -198,7 +198,7 @@ if (mouth_full = false) && (!float)
 				can_turn = false;
 				can_move = false;
 				can_float = false;
-				vsp = 8
+				vsp = (8 * (sign(grv)))
 				if (image_xscale = -1) hsp = -7
 				if (image_xscale = 1) hsp = 7
 				spr_idle = spr_kirb_cutter_drop;
@@ -268,7 +268,7 @@ if (mouth_full = false) && (!float)
 				can_use_ability = false
 				image_index = 0;
 				//grv = 0.1;
-				vsp = -10;
+				vsp = (-10 * (sign(grv)));
 				instance_create_depth(x, y, 0, obj_sword_upwards_hit)
 				spr_idle = spr_kirb_sword_upward_slash;
 				spr_fall = spr_kirb_sword_upward_slash;
@@ -291,7 +291,7 @@ if (mouth_full = false) && (!float)
 				image_index = 0;
 				grv = 0;
 				vsp_fall_max = 15
-				vsp = 15;
+				vsp = (15 * (sign(grv)));
 				instance_create_depth(x, y, 0, obj_sword_drop_hit)
 				spr_idle = spr_kirb_sword_drop;
 				spr_fall = spr_kirb_sword_drop;

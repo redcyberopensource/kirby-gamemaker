@@ -68,7 +68,10 @@ if (can_dash)
 	if (hsp == 0) dash_counter = 0
 }
 
-if (vsp < vsp_fall_max) vsp += grv
+if ((vsp_fall_max > 0) && (grv > 0 && vsp < vsp_fall_max)) || ((vsp_fall_max < 0) && (grv < 0 && vsp > vsp_fall_max)) {
+    vsp += grv;
+}
+
 
 //Stop if cannot move
 if (!can_move)
@@ -100,31 +103,31 @@ else if (vsp_acc) && (vsp < 0)
 }
 
 //Jumping
-if place_meeting(x, y+1, obj_solid) && (!key_action)
+if place_meeting(x, y+sign(grv), obj_solid) && (!key_action)
 {
-	vsp = key_jump * -vsp_jump;
+	vsp = key_jump * (vsp_jump * -sign(grv));
 	//spr_jump = spr_kirb_jump;
 	//spr_fall = spr_kirb_fall;
-	vsp_fall_max = 10
+	vsp_fall_max = 10 * sign(grv)
 	
 	if (key_jump) audio_play_sound(snd_kirb_jump, 5, false)
 }
 
 //Float
-if (!place_meeting(x, y+1, obj_solid)) && (key_jump) && (can_float = true)
+if (!place_meeting(x, y+sign(grv), obj_solid)) && (key_jump) && (can_float = true)
 {
 	float = true
-	vsp = key_jump * -vsp_float;
+	vsp = key_jump * (vsp_float * -sign(grv));
 	spr_jump = spr_float_default;
 	spr_fall = spr_float_idle_default;
 	can_dash = false;
-	vsp_fall_max = 2.5;
+	vsp_fall_max = (2.5 * sign(grv));
 	
 	audio_play_sound(snd_kirb_float, 5, false)
 }
 
 //Float haltmann
-if ((key_action_pressed) && (!place_meeting(x, y+1, obj_solid)) && (float))
+if ((key_action_pressed) && (!place_meeting(x, y+sign(grv), obj_solid)) && (float))
 {
 	spr_jump = spr_float_halt_default
 	spr_fall = spr_float_halt_default
@@ -136,13 +139,13 @@ if ((key_action_pressed) && (!place_meeting(x, y+1, obj_solid)) && (float))
 		image_xscale = obj_kirb.image_xscale
 	}
 	alarm[0] = 6
-	vsp_fall_max = 10;
+	vsp_fall_max = 10 * sign(grv);
 	can_dash = true
 	
 	audio_play_sound(snd_kirb_float_halt, 5, false)
 }
 
-if ((place_meeting(x, y+1, obj_solid)) && (float))
+if ((place_meeting(x, y+sign(grv), obj_solid)) && (float))
 {
 	float = false
 	spr_jump = spr_float_halt_default
@@ -156,7 +159,9 @@ if ((place_meeting(x, y+1, obj_solid)) && (float))
 		image_xscale = obj_kirb.image_xscale
 	}
 	alarm[0] = 6
-	vsp_fall_max = 10;
+	vsp_fall_max = 10 * sign(grv);
+	
+	audio_play_sound(snd_kirb_float_halt, 5, false)
 }
 
 
@@ -202,7 +207,7 @@ if (instance_exists(obj_wind))
 }
 
 //g o  d o w n  s l o p e s
-while (place_meeting(x, y+hsp_max+1, obj_slope) && (!place_meeting(x, y+1, obj_slope)) && vspeed >=0)
+while (place_meeting(x, y+hsp_max+1, obj_slope) && (!place_meeting(x, y+sign(grv), obj_slope)) && vspeed >=0)
 {
 	y += 1
 }
@@ -230,7 +235,7 @@ if place_meeting(x, y, obj_flamer_suck) || place_meeting(x, y, obj_star_fire_suc
 }
 
 //Air doge
-if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodge) && (!place_meeting(x, y+1, obj_solid))
+if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodge) && (!place_meeting(x, y+sign(grv), obj_solid))
 {
 	can_move = false;
 	can_float = false;
@@ -257,7 +262,7 @@ if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodg
 }
 
 //Stop airdoge if touching floor
-if (place_meeting(x, y+1, obj_solid)) && (image_alpha = 0.5) && (dodge)
+if (place_meeting(x, y+sign(grv), obj_solid)) && (image_alpha = 0.5) && (dodge)
 {
 	dodge = false;
 	can_dodge = true
@@ -285,6 +290,40 @@ if (mouth_full)
 	spr_run_default = spr_kirb_inhaled_walk;
 	spr_jump_default = spr_kirb_inhaled_jump;
 	spr_fall_default = spr_kirb_inhaled_fall;
+}
+
+//Change image_yscale
+if (grv > 0)
+{
+	image_yscale = 1;
+}
+else if (grv < 0)
+{
+	image_yscale = -1;
+}
+
+//Gravity portals
+if (place_meeting(x, y, obj_anti_gravity_portal))
+{
+	current_grv = -0.25
+	grv = -0.25
+	vsp = -3
+	with obj_anti_gravity_portal
+	{
+		mask_index = spr_absolutely_nothing;
+		alarm[0] = 30
+	}
+}
+else if (place_meeting(x, y, obj_gravity_portal))
+{
+	current_grv = 0.25
+	grv = 0.25
+	vsp = 3
+	with obj_gravity_portal
+	{
+		mask_index = spr_absolutely_nothing;
+		alarm[0] = 30
+	}
 }
 
 
@@ -358,7 +397,7 @@ get_abilities()
 copy_animations()
 
 //Discard ability
-if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))
+if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+sign(grv), obj_solid))
 {
 	switch (global.powerup)
 	{
@@ -389,7 +428,7 @@ if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+1, obj_solid))
 	spr_idle = spr_kirb_idle;
 	spr_walk = spr_kirb_walk;
 	spr_run = spr_kirb_run;
-	vsp_fall_max = 10
+	vsp_fall_max = 10 * sign(grv)
 	spr_float_default = spr_kirby_float;
 	spr_float_idle_default = spr_kirby_float_idle;
 	spr_float_halt_default = spr_kirb_float_halt;
@@ -478,7 +517,7 @@ if (global.lives < 0)
 
 //Animation
 if ((move != 0) && (can_turn)) image_xscale = move
-if place_meeting(x, y+1, obj_solid)
+if place_meeting(x, y+sign(grv), obj_solid)
 {
 	if (hsp = 0) sprite_index = spr_idle;
 	else if (hsp != 0)
@@ -487,10 +526,13 @@ if place_meeting(x, y+1, obj_solid)
 		else if (dash_counter >= 2) sprite_index = spr_run
 	}
 }
-else if (!place_meeting(x, y+1, obj_solid))
+else if (!place_meeting(x, y+sign(grv), obj_solid))
 {
-	if (vsp < 0) sprite_index = spr_jump
-	else if (vsp > 0) 
+	if ((vsp < 0) && (grv > 0)) || ((vsp > 0) && (grv < 0))
+	{
+		sprite_index = spr_jump
+	}
+	else if ((vsp > 0) && (grv > 0)) || ((vsp < 0) && (grv < 0))
 	{
 		sprite_index = spr_fall
 	}

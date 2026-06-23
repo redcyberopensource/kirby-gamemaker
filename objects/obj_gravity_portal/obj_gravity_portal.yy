@@ -1,20 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_cherry_bounce",
+  "%Name":"obj_gravity_portal",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_cherry_bounce",
+  "name":"obj_gravity_portal",
   "overriddenProperties":[],
   "parent":{
-    "name":"Cherry",
-    "path":"folders/Objects/Hazard/Cherry.yy",
+    "name":"Gravity",
+    "path":"folders/Objects/Objects/Portals/Gravity.yy",
   },
-  "parentObjectId":{
-    "name":"par_instakill",
-    "path":"objects/par_instakill/par_instakill.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -33,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_cherry",
-    "path":"sprites/spr_cherry/spr_cherry.yy",
+    "name":"spr_grav_portal",
+    "path":"sprites/spr_grav_portal/spr_grav_portal.yy",
   },
   "spriteMaskId":null,
   "visible":true,

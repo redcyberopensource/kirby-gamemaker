@@ -14,7 +14,7 @@ instance_destroy(obj_fire_burning_hit)
 instance_destroy(obj_sword_slash_hit)
 instance_destroy(obj_sword_upwards_hit)
 acc = 0.2
-grv = 0.25
+grv = current_grv;
 cutter_dash = false;
 can_move = true;
 can_dash = true;
