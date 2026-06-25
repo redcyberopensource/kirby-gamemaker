@@ -291,8 +291,9 @@ if (mouth_full = false) && (!float)
 				image_index = 0;
 				grv = 0;
 				vsp_fall_max = 15
-				vsp = (15 * (sign(grv)));
+				vsp = (15 * (sign(current_grv)));
 				instance_create_depth(x, y, 0, obj_sword_drop_hit)
+				sprite_index = spr_kirb_sword_drop
 				spr_idle = spr_kirb_sword_drop;
 				spr_fall = spr_kirb_sword_drop;
 				spr_jump = spr_kirb_sword_drop;
@@ -329,7 +330,7 @@ if (mouth_full = false) && (!float)
 			}
 		break;
 		
-		case 5:
+		case 5: //Wheel ability
 			if (key_action_pressed) && (can_use_ability) && (!float)
 			{
 				wheel_roll = true;
