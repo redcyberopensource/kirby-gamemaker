@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_protal_anim_trigger",
+  "%Name":"obj_white_flash",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_kirb","path":"objects/obj_kirb/obj_kirb.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_protal_anim_trigger",
+  "name":"obj_white_flash",
   "overriddenProperties":[],
   "parent":{
-    "name":"PURPLE",
-    "path":"folders/Objects/Objects/Portals/PURPLE.yy",
+    "name":"Title Screen",
+    "path":"folders/Objects/Title Screen.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_trigger_purple",
-    "path":"sprites/spr_trigger_purple/spr_trigger_purple.yy",
+    "name":"spr_dot",
+    "path":"sprites/spr_dot/spr_dot.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

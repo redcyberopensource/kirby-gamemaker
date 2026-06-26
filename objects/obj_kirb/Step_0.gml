@@ -262,7 +262,7 @@ if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodg
 }
 
 //Stop airdoge if touching floor
-if (place_meeting(x, y+sign(grv), obj_solid)) && (image_alpha = 0.5) && (dodge)
+if (place_meeting(x, y+sign(grv), obj_solid)) && (dodge)
 {
 	dodge = false;
 	can_dodge = true
@@ -270,7 +270,7 @@ if (place_meeting(x, y+sign(grv), obj_solid)) && (image_alpha = 0.5) && (dodge)
 	can_move = true;
 
 	can_hurt = true;
-	grv = 0.25;
+	grv = current_grv;
 	image_speed = 1;
 	image_alpha = 1
 	vsp_acc = false
