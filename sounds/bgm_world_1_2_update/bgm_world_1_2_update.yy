@@ -9,7 +9,7 @@
   "bitRate":192,
   "compression":3,
   "conversionMode":0,
-  "duration":171.33713,
+  "duration":171.93796,
   "name":"bgm_world_1_2_update",
   "parent":{
     "name":"World 1",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"bgm_world_1_2_update.mp3",
   "type":1,
-  "volume":0.5,
+  "volume":0.75,
 }

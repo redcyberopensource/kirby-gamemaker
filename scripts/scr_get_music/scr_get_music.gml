@@ -55,6 +55,11 @@ function get_music(){
 			global.current_music = bgm_world_1
 		break;
 		
+		case rm_level_3_3:
+			if (global.current_music != bgm_world_1_2_update) audio_stop_all()
+			global.current_music = bgm_world_1_2_update
+		break;
+		
 		case rm_level_1_4:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1_1
