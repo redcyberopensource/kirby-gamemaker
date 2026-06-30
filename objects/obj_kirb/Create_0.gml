@@ -37,6 +37,9 @@ sword_dash = false;
 
 wheel_roll = false;
 
+ninja_dive = false;
+ninja_teleport = false;
+
 mouth_full = false;
 dash_counter = 0;
 

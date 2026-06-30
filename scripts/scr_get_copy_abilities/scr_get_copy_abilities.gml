@@ -360,6 +360,119 @@ if (mouth_full = false) && (!float)
 				alarm[0] = 8
 			}
 		break;
+		
+		case 6: //Ninja ability
+			if (key_action_pressed) && (!float) && (can_use_ability) && (!key_down) && (!key_up)
+			{
+				can_turn = false;
+				can_move = false;
+				can_float = false;
+				image_index = 0;
+				spr_idle = spr_kirb_ninja_throw;
+				spr_fall = spr_kirb_ninja_throw;
+				spr_jump = spr_kirb_ninja_throw;
+				spr_run = spr_kirb_ninja_throw;
+				spr_walk = spr_kirb_ninja_throw;
+				alarm[2] = 9.6
+				alarm[0] = 16;
+			}
+			
+			if (key_action_pressed) && (!float) && (key_down) && (can_use_ability) && (!ninja_dive)
+			{
+				ninja_dive = true
+			}
+			
+			if (ninja_dive)
+			{
+				//sword_drop = true
+				can_turn = false;
+				can_move = false;
+				//can_float = false;
+				can_use_ability = false
+				image_index = 0;
+				//grv = 0;
+				vsp_fall_max = 15
+				vsp = (10 * (sign(current_grv)));
+				hsp_max = 13
+				hsp = 13 * image_xscale
+				//instance_create_depth(x, y, 0, obj_sword_drop_hit)
+				sprite_index = spr_kirb_ninja_dive
+				spr_idle = spr_kirb_ninja_dive;
+				spr_fall = spr_kirb_ninja_dive;
+				spr_jump = spr_kirb_ninja_dive;
+				spr_run = spr_kirb_ninja_dive;
+				spr_walk = spr_kirb_ninja_dive;
+			}
+			if (ninja_dive) && (key_jump)
+			{
+				ninja_dive = false
+				sprite_index = spr_float_idle_default
+				vsp = key_jump * (vsp_float * -sign(grv));
+				spr_jump = spr_float_default;
+				spr_fall = spr_float_idle_default;
+				can_dash = false;
+				vsp_fall_max = (2.5 * sign(grv));
+				grv = current_grv
+				float = true;
+			}
+			
+			if (ninja_dive) && (place_meeting(x, y+1, obj_solid))
+			{
+				ninja_dive = false
+				//instance_destroy(obj_sword_drop_hit)
+				alarm[0] = 1
+			}
+			
+			if (key_action_pressed) && (!float) && (key_up) && (can_use_ability) && (!ninja_dive) && (!ninja_teleport)
+			{
+				ninja_teleport = true
+				grv = 0;
+				vsp = 0;
+				hsp = 0;
+				sprite_index = spr_kirb_ninja_teleoprt
+				spr_idle = spr_kirb_ninja_teleoprt;
+				spr_fall = spr_kirb_ninja_teleoprt;
+				spr_jump = spr_kirb_ninja_teleoprt;
+				spr_run = spr_kirb_ninja_teleoprt;
+				spr_walk = spr_kirb_ninja_teleoprt;
+				image_alpha = 0.5;
+			}
+			
+			if (ninja_teleport) && (image_index > 2)
+			{
+				image_index = 2
+			}
+			
+			if (ninja_teleport) && (key_left_pressed) 
+			{
+				//x = x - 140
+				ninja_teleport_to(-1, 0, 140);
+				image_alpha = 1;
+				ninja_teleport = false;
+				alarm[0] = 10
+			}
+			else if (ninja_teleport) && (key_right_pressed) 
+			{
+				x = x + 140
+				image_alpha = 1;
+				ninja_teleport = false;
+				alarm[0] = 10
+			}
+			else if (ninja_teleport) && (key_down_pressed) 
+			{
+				y = y + 140
+				image_alpha = 1;
+				ninja_teleport = false;
+				alarm[0] = 10
+			}
+			else if (ninja_teleport) && (key_up_pressed) 
+			{
+				y = y - 140
+				image_alpha = 1;
+				ninja_teleport = false;
+				alarm[0] = 10
+			}
+		break;
 	}
 }
 }

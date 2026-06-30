@@ -5,6 +5,7 @@ key_left_pressed = keyboard_check_pressed(vk_left) || gamepad_button_check_press
 key_right_pressed = keyboard_check_pressed(vk_right) || gamepad_button_check_pressed(0, gp_padr)
 key_down = keyboard_check(vk_down) || gamepad_button_check(0, gp_padd)
 key_up = keyboard_check(vk_up) || gamepad_button_check(0, gp_padu)
+key_up_pressed = keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(0, gp_padu)
 key_jump = keyboard_check_pressed(ord("Z")) || gamepad_button_check_pressed(0, gp_face1)
 key_down_pressed = keyboard_check_pressed(vk_down) || gamepad_button_check_pressed(0, gp_padd)
 key_action_pressed = keyboard_check_pressed(ord("X")) || gamepad_button_check_pressed(0, gp_face3)
@@ -20,8 +21,6 @@ if (dodge)
 {
 	can_move = false;
 }
-
-
 
 //Moving
 if (can_move == true)
@@ -420,6 +419,10 @@ if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+sign(grv), obj_
 		case 5:
 			instance_create_depth(x, y, 0, obj_star_wheel)
 		break;
+		
+		case 6:
+			instance_create_depth(x, y, 0, obj_star_ninja)
+		break;
 	}
 	
 	global.powerup = 0;
@@ -459,6 +462,10 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		
 		case 5:
 			instance_create_depth(x, y, 0, obj_star_wheel)
+		break;
+		
+		case 6:
+			instance_create_depth(x, y, 0, obj_star_ninja)
 		break;
 	}
 	

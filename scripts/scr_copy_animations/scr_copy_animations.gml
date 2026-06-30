@@ -67,5 +67,16 @@ switch global.powerup
 		spr_float_idle_default = spr_kirb_wheel_float_idle;
 		spr_float_halt_default = spr_kirb_wheel_float_halt;
 	break;
+	
+	case 6:
+		spr_fall_default = spr_kirb_ninja_fall;
+		spr_jump_default = spr_kirb_ninja_jump;
+		spr_idle_default = spr_kirb_ninja_idle;
+		spr_walk_default = spr_kirb_ninja_walk;
+		spr_run_default = spr_kirb_ninja_run;
+		spr_float_default = spr_kirb_ninja_float;
+		spr_float_idle_default = spr_kirb_ninja_float_idle;
+		spr_float_halt_default = spr_kirb_ninja_float_halt;
+	break;
 }
 }
