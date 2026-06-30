@@ -20,6 +20,7 @@ switch (trans)
 			instance_create_depth(x, y, -99999, obj_white_flash)
 			image_alpha = 0;
 			alarm[0] = 60
+			trans = -1
 		}
 	break;
 }
