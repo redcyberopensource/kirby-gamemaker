@@ -362,7 +362,7 @@ if (mouth_full = false) && (!float)
 		break;
 		
 		case 6: //Ninja ability
-			if (key_action_pressed) && (!float) && (can_use_ability) && (!key_down) && (!key_up)
+			if (key_action_pressed) && (!float) && (can_use_ability) && (!key_down) && (!key_up) && (dash_counter < 2)
 			{
 				can_turn = false;
 				can_move = false;
@@ -438,39 +438,85 @@ if (mouth_full = false) && (!float)
 				image_alpha = 0.5;
 			}
 			
-			if (ninja_teleport) && (image_index > 2)
+			if (ninja_teleport)
 			{
-				image_index = 2
+				if (ninja_teleport) && (image_index > 2)
+				{
+					image_index = 2
+				}
+			
+				if (ninja_teleport) && (key_left_pressed) 
+					{
+						//x = x - 140
+						x = x - 140
+						image_alpha = 1;
+						ninja_teleport = false;
+						alarm[0] = 10
+					}
+				else if (ninja_teleport) && (key_right_pressed) 
+					{
+						x = x + 140
+						image_alpha = 1;
+						ninja_teleport = false;
+						alarm[0] = 10
+					}
+				else if (ninja_teleport) && (key_down_pressed) 
+					{
+						y = y + 140
+						image_alpha = 1;
+						ninja_teleport = false;
+						alarm[0] = 10
+					}
+				else if (ninja_teleport) && (key_up_pressed) 
+					{
+						y = y - 140
+						image_alpha = 1;
+						ninja_teleport = false;
+						alarm[0] = 10
+					}
+			
 			}
 			
-			if (ninja_teleport) && (key_left_pressed) 
+			if (dash_counter >= 2) && (key_action_pressed) && (!float) && (can_use_ability)
 			{
-				//x = x - 140
-				ninja_teleport_to(-1, 0, 140);
-				image_alpha = 1;
-				ninja_teleport = false;
-				alarm[0] = 10
+				ninja_dash = true;
+				alarm[0] = 30
 			}
-			else if (ninja_teleport) && (key_right_pressed) 
+			
+			if (ninja_dash)
 			{
-				x = x + 140
-				image_alpha = 1;
-				ninja_teleport = false;
-				alarm[0] = 10
+				sprite_index = spr_kirb_ninja_dash;
+				spr_idle = spr_kirb_ninja_dash;
+				spr_fall = spr_kirb_ninja_dash;
+				spr_jump = spr_kirb_ninja_dash;
+				spr_run = spr_kirb_ninja_dash;
+				spr_walk = spr_kirb_ninja_dash;
+				vsp = 0;
+				grv = 0;
+				acc = 0.2
+				hsp = 10*image_xscale
+				can_move = false;
+				can_jump = false;
+				can_turn = false;
+				can_float = false
 			}
-			else if (ninja_teleport) && (key_down_pressed) 
+		break;
+		
+		case 7:
+			if (key_action_pressed) && (!float) && (can_use_ability)
 			{
-				y = y + 140
-				image_alpha = 1;
-				ninja_teleport = false;
-				alarm[0] = 10
-			}
-			else if (ninja_teleport) && (key_up_pressed) 
-			{
-				y = y - 140
-				image_alpha = 1;
-				ninja_teleport = false;
-				alarm[0] = 10
+				if (current_grv = 0.25)
+				{
+					current_grv = -0.25;
+					grv = -0.25;
+					vsp = -3;
+				}
+				else if (current_grv = -0.25)
+				{
+					current_grv = 0.25;
+					grv = 0.25;
+					vsp = 3;
+				}
 			}
 		break;
 	}

@@ -22,3 +22,4 @@ can_float = true;
 can_turn = true;
 float = false;
 ninja_dive = false;
+ninja_dash = false;

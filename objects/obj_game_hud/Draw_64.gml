@@ -3,7 +3,7 @@ draw_healthbar(0, display_get_gui_height()-20, 5000, display_get_gui_height(), g
 
 var col = c_black
 
-if (room = rm_level_2_5) col = c_white else col = c_black
+if ((room = rm_level_2_5) || (room = rm_level_3_3)) col = c_white else col = c_black
 
 draw_set_font(fnt_text_0)
 draw_set_valign(fa_top);

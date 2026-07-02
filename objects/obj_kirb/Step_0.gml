@@ -396,7 +396,7 @@ get_abilities()
 copy_animations()
 
 //Discard ability
-if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+sign(grv), obj_solid))
+if (key_discard_ability) && (!mouth_full) && (!float)
 {
 	switch (global.powerup)
 	{
@@ -422,6 +422,10 @@ if (key_discard_ability) && (!mouth_full) && (place_meeting(x, y+sign(grv), obj_
 		
 		case 6:
 			instance_create_depth(x, y, 0, obj_star_ninja)
+		break;
+		
+		case 7:
+			instance_create_depth(x, y, 0, obj_star_v)
 		break;
 	}
 	
@@ -466,6 +470,10 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		
 		case 6:
 			instance_create_depth(x, y, 0, obj_star_ninja)
+		break;
+		
+		case 7:
+			instance_create_depth(x, y, 0, obj_star_v)
 		break;
 	}
 	
