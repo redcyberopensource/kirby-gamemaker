@@ -23,6 +23,8 @@ can_jump = false;
 
 hsp_forced_max = 5
 
+rot = 0;
+
 dodge = false;
 can_dodge = true;
 
@@ -40,6 +42,10 @@ wheel_roll = false;
 ninja_dive = false;
 ninja_teleport = false;
 ninja_dash = false;
+
+smash_jab = false;
+smash_hammer = false;
+smash_spin = false;
 
 mouth_full = false;
 dash_counter = 0;

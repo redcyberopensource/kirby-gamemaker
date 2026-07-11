@@ -16,7 +16,6 @@ key_dodge = keyboard_check_pressed(ord("C")) || gamepad_button_check_pressed(0, 
 var move = key_right - key_left;
 var hsp_final = hsp + hspeed
 
-
 if (dodge)
 {
 	can_move = false;
@@ -251,17 +250,17 @@ if (key_dodge) && (can_move) && (can_float) && (!float) && (!dodge) && (can_dodg
 	hsp = 0
 	grv = 0;
 	
-	if (key_left) hsp = -4
-	if (key_right) hsp = 4
-	if (key_down) vsp = 4
-	if (key_up) vsp = -4
+	if (key_left) hsp = -5
+	if (key_right) hsp = 5
+	if (key_down) vsp = 5
+	if (key_up) vsp = -5
 	vsp_acc = true
 	
 	alarm[4] = 30
 }
 
 //Stop airdoge if touching floor
-if (place_meeting(x, y+sign(grv), obj_solid)) && (dodge)
+if (place_meeting(x, y+sign(current_grv), obj_solid)) && (dodge)
 {
 	dodge = false;
 	can_dodge = true
@@ -552,3 +551,5 @@ else if (!place_meeting(x, y+sign(grv), obj_solid))
 		sprite_index = spr_fall
 	}
 }
+
+image_angle += rot;

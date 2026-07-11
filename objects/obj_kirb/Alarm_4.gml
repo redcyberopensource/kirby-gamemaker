@@ -6,6 +6,8 @@ can_hurt = true;
 can_dash = true;
 can_turn = true;
 
+can_use_ability = true;
+
 dodge = false;
 alarm[5] = 60
 grv = current_grv;

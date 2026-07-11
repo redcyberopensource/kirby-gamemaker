@@ -502,7 +502,7 @@ if (mouth_full = false) && (!float)
 			}
 		break;
 		
-		case 7:
+		case 7: //VVVVVVVVVV Ability
 			if (key_action_pressed) && (!float) && (can_use_ability)
 			{
 				if (current_grv = 0.25)
@@ -517,6 +517,81 @@ if (mouth_full = false) && (!float)
 					grv = 0.25;
 					vsp = 3;
 				}
+			}
+		break;
+		
+		case 8:
+			if (key_action) && (!float) && (can_use_ability) && (place_meeting(x, y+1, obj_solid)) && (!smash_jab) && !(key_left || key_right)
+			{
+				smash_jab = true;
+			}
+			if (key_action_pressed) && (smash_jab)
+			{
+				instance_create_depth(x, y, 0, obj_jab_part)
+			}
+			if (smash_jab)
+			{
+				can_use_ability = false;
+				can_move = false
+				sprite_index = spr_kirb_smash_jab
+				spr_idle = spr_kirb_smash_jab;
+				spr_fall = spr_kirb_smash_jab;
+				spr_jump = spr_kirb_smash_jab;
+				spr_run = spr_kirb_smash_jab;
+				spr_walk = spr_kirb_smash_jab;
+			}
+			if (!key_action) && (smash_jab)
+			{
+				smash_jab = false;
+				instance_destroy(obj_jab_part)
+				alarm[0] = 2
+			}
+			
+			if (key_action) && (!float) && (can_use_ability) && (key_left || key_right) && (place_meeting(x, y+1, obj_solid)) && (!smash_hammer)
+			{
+				smash_hammer = true;
+			}
+			if (smash_hammer) && (key_action)
+			{
+				image_index = 0;
+				image_speed = 0;
+				can_move = false;
+				can_jump = false;
+				spr_idle = spr_kirb_smash_hammer;
+				spr_fall = spr_kirb_smash_hammer;
+				spr_jump = spr_kirb_smash_hammer;
+				spr_run = spr_kirb_smash_hammer;
+				spr_walk = spr_kirb_smash_hammer;
+			}
+			else if (smash_hammer) && (!key_action)
+			{
+				smash_hammer = false;
+				image_speed = 1;
+				spr_idle = spr_kirb_smash_hammer;
+				spr_fall = spr_kirb_smash_hammer;
+				spr_jump = spr_kirb_smash_hammer;
+				spr_run = spr_kirb_smash_hammer;
+				spr_walk = spr_kirb_smash_hammer;
+				alarm[0] = 24
+			}
+			
+			if (key_action_pressed) && (!float) && (can_use_ability) && (!place_meeting(x, y+1, obj_solid))
+			{
+				smash_spin = true;
+				alarm[0] = 20
+			}
+			if (smash_spin)
+			{
+				spr_idle = spr_kirb_smash_spin;
+				spr_fall = spr_kirb_smash_spin;
+				spr_jump = spr_kirb_smash_spin;
+				spr_run = spr_kirb_smash_spin;
+				spr_walk = spr_kirb_smash_spin;
+				rot = 20;
+			}
+			if (smash_spin) && (place_meeting(x, y+1, obj_solid))
+			{
+				alarm[0] = 1
 			}
 		break;
 	}

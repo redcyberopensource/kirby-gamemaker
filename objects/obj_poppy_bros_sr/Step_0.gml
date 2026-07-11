@@ -48,7 +48,7 @@ if (throw_bomb) && ((place_meeting(x, y ,obj_pbs_left)) || (place_meeting(x, y, 
 if (hp <= 0)
 {
 	hsp = -hsp/2
-	play_music(song_end, true)
+	if (global.can_play_music = true) play_music(song_end, true)
 	obj_boss_door.image_index = 1
 	instance_create_depth(x, y, 0, obj_camera)
 	instance_change(obj_poppy_bros_sr_dead, false)
