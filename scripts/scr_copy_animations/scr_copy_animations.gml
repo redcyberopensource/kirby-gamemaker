@@ -100,5 +100,16 @@ switch global.powerup
 		spr_float_idle_default = spr_kirby_float_idle;
 		spr_float_halt_default = spr_kirb_float_halt;
 	break;
+	
+	case 9:
+		spr_fall_default = spr_kirb_ufo;
+		spr_jump_default = spr_kirb_ufo;
+		spr_idle_default = spr_kirb_ufo;
+		spr_walk_default = spr_kirb_ufo;
+		spr_run_default = spr_kirb_ufo;
+		spr_float_default = spr_kirb_ufo;
+		spr_float_idle_default = spr_kirb_ufo;
+		spr_float_halt_default = spr_kirb_ufo;
+	break;
 }
 }

@@ -101,7 +101,7 @@ else if (vsp_acc) && (vsp < 0)
 }
 
 //Jumping
-if place_meeting(x, y+sign(grv), obj_solid) && (!key_action)
+if (place_meeting(x, y+sign(grv), obj_solid)) && (!key_action)
 {
 	vsp = key_jump * (vsp_jump * -sign(grv));
 	//spr_jump = spr_kirb_jump;
@@ -112,7 +112,7 @@ if place_meeting(x, y+sign(grv), obj_solid) && (!key_action)
 }
 
 //Float
-if (!place_meeting(x, y+sign(grv), obj_solid)) && (key_jump) && (can_float = true)
+if (!place_meeting(x, y+sign(grv), obj_solid)) && (key_jump) && (can_float = true) && (global.powerup != 9)
 {
 	float = true
 	vsp = key_jump * (vsp_float * -sign(grv));
@@ -122,6 +122,15 @@ if (!place_meeting(x, y+sign(grv), obj_solid)) && (key_jump) && (can_float = tru
 	vsp_fall_max = (2.5 * sign(grv));
 	
 	audio_play_sound(snd_kirb_float, 5, false)
+}
+else if (key_jump) && (!place_meeting(x, y+sign(grv), obj_solid)) && (global.powerup = 9)
+{
+	vsp = key_jump * (vsp_jump * -sign(grv));
+	//spr_jump = spr_kirb_jump;
+	//spr_fall = spr_kirb_fall;
+	vsp_fall_max = 10 * sign(grv)
+	
+	if (key_jump) audio_play_sound(snd_kirb_jump, 5, false)
 }
 
 //Float haltmann
@@ -426,6 +435,14 @@ if (key_discard_ability) && (!mouth_full) && (!float)
 		case 7:
 			instance_create_depth(x, y, 0, obj_star_v)
 		break;
+		
+		case 8:
+			instance_create_depth(x, y, 0, obj_star_smash)
+		break;
+		
+		case 9:
+			instance_create_depth(x, y, 0, obj_kirb_ufo_empty)
+		break;
 	}
 	
 	global.powerup = 0;
@@ -473,6 +490,14 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		
 		case 7:
 			instance_create_depth(x, y, 0, obj_star_v)
+		break;
+		
+		case 8:
+			instance_create_depth(x, y, 0, obj_star_smash)
+		break;
+		
+		case 9:
+			instance_create_depth(x, y, 0, obj_kirb_ufo_empty)
 		break;
 	}
 	

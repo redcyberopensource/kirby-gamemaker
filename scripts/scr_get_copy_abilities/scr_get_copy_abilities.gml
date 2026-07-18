@@ -594,6 +594,12 @@ if (mouth_full = false) && (!float)
 				alarm[0] = 1
 			}
 		break;
+		
+		case 9://UFO
+		
+			//ts was so easy to code
+		
+		break;
 	}
 }
 }

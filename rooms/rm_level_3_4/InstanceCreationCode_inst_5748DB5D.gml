@@ -1,1 +1,1 @@
-hub_door = 5;
+hub_door = 4;

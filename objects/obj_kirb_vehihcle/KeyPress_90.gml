@@ -1,0 +1,1 @@
+if (kirb_inside) vsp = -10
