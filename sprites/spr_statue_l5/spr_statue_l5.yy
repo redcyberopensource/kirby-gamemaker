@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_statue_l5",
   "bboxMode":0,
-  "bbox_bottom":68,
+  "bbox_bottom":137,
   "bbox_left":0,
-  "bbox_right":30,
+  "bbox_right":61,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":69,
+  "height":138,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"8c002aa2-8730-44f5-b6db-7ec7c18cd26b","blendMode":0,"displayName":"default","isLocked":false,"name":"8c002aa2-8730-44f5-b6db-7ec7c18cd26b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":31,
+  "width":62,
 }

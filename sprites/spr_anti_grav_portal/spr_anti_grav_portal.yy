@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Portals",
-    "path":"folders/Sprites/Objects/Portals.yy",
+    "name":"Gravity",
+    "path":"folders/Sprites/Objects/Portals/Gravity.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

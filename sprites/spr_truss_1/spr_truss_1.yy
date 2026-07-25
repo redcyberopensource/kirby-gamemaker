@@ -3,8 +3,8 @@
   "%Name":"spr_truss_1",
   "bboxMode":0,
   "bbox_bottom":29,
-  "bbox_left":0,
-  "bbox_right":35,
+  "bbox_left":107,
+  "bbox_right":142,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -105,5 +105,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":36,
+  "width":250,
 }

@@ -5,5 +5,5 @@ if (can_go_inside)
 	kirb_inside = true
 	image_index = 1
 	can_go_inside = false
-	spd = 5
+	spd = 7
 }

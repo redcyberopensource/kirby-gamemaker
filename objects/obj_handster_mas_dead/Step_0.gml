@@ -1,5 +1,5 @@
 camera_set_view_target(view_camera[0], obj_kirb);
-instance_destroy(obj_solid_hidden)
+instance_destroy(obj_solid_2)
 vsp += grv
 
 if (place_meeting(x+hsp, y, obj_solid))

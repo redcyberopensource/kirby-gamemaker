@@ -12,3 +12,4 @@ spd_max = 15;
 can_hurt = true;
 
 angle = 0;
+infinite_jump = false;

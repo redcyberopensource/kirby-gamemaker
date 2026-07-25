@@ -1,1 +1,1 @@
-if (kirb_inside) vsp = -10
+if ((kirb_inside) && ((place_meeting(x, y+1, obj_solid)) || infinite_jump = true)) vsp = -7
