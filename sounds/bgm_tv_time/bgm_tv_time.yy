@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_tv_time",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":192,
+  "compression":3,
+  "conversionMode":0,
+  "duration":269.87103,
+  "name":"bgm_tv_time",
+  "parent":{
+    "name":"World 1",
+    "path":"folders/Sounds/BGM/World 1.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_tv_time.mp3",
+  "type":1,
+  "volume":1.0,
+}

@@ -34,6 +34,8 @@ function get_music(){
 		case rm_level_1_3:
 		case rm_level_1_6:
 		case rm_level_2_0:
+		case rm_level_4_1:
+		case rm_level_4_2:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1
 		break;
@@ -63,6 +65,11 @@ function get_music(){
 		case rm_level_1_4:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1_1
+		break;
+		
+		case rm_level_4_3:
+			if (global.current_music != bgm_world_1) audio_stop_all()
+			global.current_music = bgm_tv_time
 		break;
 		
 		case rm_game_over:
