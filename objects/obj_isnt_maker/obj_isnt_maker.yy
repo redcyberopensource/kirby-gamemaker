@@ -1,21 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_circle_of_spikes_instakill",
+  "%Name":"obj_isnt_maker",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_circle_of_spikes_instakill",
+  "name":"obj_isnt_maker",
   "overriddenProperties":[],
   "parent":{
     "name":"group1",
     "path":"folders/Objects/Hazard/group1.yy",
   },
-  "parentObjectId":{
-    "name":"par_instakill",
-    "path":"objects/par_instakill/par_instakill.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_spike_circle_instakill",
-    "path":"sprites/spr_spike_circle_instakill/spr_spike_circle_instakill.yy",
+    "name":"spr_trigger_blue",
+    "path":"sprites/spr_trigger_blue/spr_trigger_blue.yy",
   },
   "spriteMaskId":null,
   "visible":true,
