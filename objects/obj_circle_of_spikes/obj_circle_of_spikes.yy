@@ -9,8 +9,8 @@
   "name":"obj_circle_of_spikes",
   "overriddenProperties":[],
   "parent":{
-    "name":"group1",
-    "path":"folders/Objects/Hazard/group1.yy",
+    "name":"Spike Circle",
+    "path":"folders/Objects/Hazard/Spike Circle.yy",
   },
   "parentObjectId":{
     "name":"par_hazard",

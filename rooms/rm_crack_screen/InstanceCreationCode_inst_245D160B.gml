@@ -1,0 +1,9 @@
+can_float = false;
+can_move = false;
+can_turn = false;
+can_dash = false;
+can_use_ability = false;
+can_hurt = false
+can_jump = false;
+can_dodge = false;
+image_alpha = 0;

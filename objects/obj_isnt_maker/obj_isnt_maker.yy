@@ -9,8 +9,8 @@
   "name":"obj_isnt_maker",
   "overriddenProperties":[],
   "parent":{
-    "name":"group1",
-    "path":"folders/Objects/Hazard/group1.yy",
+    "name":"Spike Circle",
+    "path":"folders/Objects/Hazard/Spike Circle.yy",
   },
   "parentObjectId":null,
   "persistent":false,

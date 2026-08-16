@@ -28,3 +28,4 @@ smash_hammer = false;
 smash_spin = false;
 image_angle = 0;
 rot = 0;
+if (room = rm_crack_screen) instance_destroy()

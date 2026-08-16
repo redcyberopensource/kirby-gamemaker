@@ -9,8 +9,8 @@
   "name":"obj_circle_of_spikes_instakill",
   "overriddenProperties":[],
   "parent":{
-    "name":"group1",
-    "path":"folders/Objects/Hazard/group1.yy",
+    "name":"Spike Circle",
+    "path":"folders/Objects/Hazard/Spike Circle.yy",
   },
   "parentObjectId":{
     "name":"par_instakill",

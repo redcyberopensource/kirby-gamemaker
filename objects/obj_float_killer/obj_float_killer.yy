@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Blockers",
-    "path":"folders/Objects/Hazard/Spike/Blockers.yy",
+    "path":"folders/Objects/Hazard/Blockers.yy",
   },
   "parentObjectId":{
     "name":"par_instakill",

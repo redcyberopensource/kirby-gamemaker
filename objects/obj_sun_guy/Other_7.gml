@@ -1,0 +1,1 @@
+if (sprite_index = spr_sun_guy_attack) image_index = 4
