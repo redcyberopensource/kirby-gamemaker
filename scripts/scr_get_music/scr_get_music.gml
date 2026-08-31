@@ -3,6 +3,11 @@
 function get_music(){
 		switch (room)
 	{
+		case rm_crack_screen:
+			audio_stop_all();
+			global.current_music = bgm_crack_screen
+		break;
+		
 		case rm_title:
 			audio_stop_all()
 			global.current_music = bgm_title
@@ -36,6 +41,7 @@ function get_music(){
 		case rm_level_2_0:
 		case rm_level_4_1:
 		case rm_level_4_2:
+		case rm_level_4_7:
 			if (global.current_music != bgm_world_1) audio_stop_all()
 			global.current_music = bgm_world_1
 		break;

@@ -54,3 +54,20 @@ global.topics[$ "Sans Defeat"] = [
 	TEXT("guess I gotta skidaddle"),
 	TEXT("gotta explain to my boss some pink creatre was trying to kill me"),
 ];
+
+global.topics[$ "i fucking love that stupid egg trend"] = [
+	TEXT("(Well there is a man here.)"),
+	CHOICE("(He offered you something.)", OPTION("Yes", "egg"), OPTION("No", "no egg"))
+];
+
+global.topics[$ "egg"] = [
+	TEXT("(You got the egg.)")
+];
+
+global.topics[$ "no egg"] = [
+	TEXT("(You got the egg anyway.)")
+];
+
+global.topics[$ "he is behind the tree"] = [
+	TEXT("(He is behind the tree.)")
+];

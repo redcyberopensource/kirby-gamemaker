@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"bgm_crack_screen",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":72.04571,
+  "name":"bgm_crack_screen",
+  "parent":{
+    "name":"Crack",
+    "path":"folders/Sounds/BGM/Crack.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"bgm_crack_screen.mp3",
+  "type":1,
+  "volume":0.5,
+}

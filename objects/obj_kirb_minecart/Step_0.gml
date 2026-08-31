@@ -81,6 +81,12 @@ if ((place_meeting(x, y, par_enemy)) || (place_meeting(x, y, par_hazard))) && (c
 		audio_play_sound(snd_kirb_hurt, 5, false)
 	}
 }
+
+if (spd != 0) && (hsp = 0)
+{
+	instance_destroy()
+}
+
 else if (place_meeting(x, y, par_enemy)) && (global.hp < 1) && (can_hurt)
 {
 	instance_create_depth(x, y, -3, obj_kirb_die)
